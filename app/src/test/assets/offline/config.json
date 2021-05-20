@@ -1,0 +1,130 @@
+{
+  "config": {
+    "ads": {
+      "enabled": true,
+      "adcolony": {
+        "adcolony_app_id": "",
+        "adcolony_interstitial_id": "",
+        "adcolony_rewarded_id": ""
+      },
+      "admob": {
+        "admob_banner_id": "ca-app-pub-3940256099942544/6300978111",
+        "admob_interstitial_id": "ca-app-pub-3940256099942544/1033173712",
+        "admob_native_id": "ca-app-pub-3940256099942544/2247696110",
+        "admob_rewarded_id": "ca-app-pub-3940256099942544/5224354917",
+        "admob_unit_id": ""
+      },
+      "appodeal": {
+        "appodeal_app_key": ""
+      },
+      "facebook": {
+        "facebook_banner_id": "",
+        "facebook_interstitial_id": "",
+        "facebook_native_id": ""
+      },
+      "unity": {
+        "unity_app_id": "",
+        "unity_banner_id": "",
+        "unity_interstitial_id": "",
+        "unity_rewarded_id": ""
+      },
+      "mode_ads_banner": "admob",
+      "mode_ads_interstitial": "admob",
+      "mode_ads_native_enabled": true,
+      "mode_ads_rewarded": "admob",
+      "mode_button_ads_action": "0"
+    },
+    "update": {
+      "_comment": "action= , url, app id",
+      "state": true,
+      "title": "Update your app",
+      "message": "New Version!",
+      "action": "",
+      "closeable": true
+    },
+    "exit": {
+      "_comment": "type=banner, content=example - type=ad_native - type=banner, image=example link=example",
+      "type": "banner",
+      "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+      "link": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg"
+    },
+    "rating": {
+      "enabled": true
+    },
+    "activities": {
+      "splash": {
+        "duration": 5000
+      },
+      "start": {
+        "enabled": true,
+        "loader": {
+          "enabled": true,
+          "duration": 4000
+        }
+      },
+      "main": {
+        "_comment": "more=developer id",
+        "more": ""
+      },
+      "list": {
+        "item": {
+          "_comment": "type = image, text, card",
+          "type": "image",
+          "loader": {
+            "enabled": true,
+            "duration": 3000
+          }
+        }
+      }
+    }
+  },
+  "data": {
+    "items": [
+      {
+        "title": "Test title 0",
+        "description": "Test description 0"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 1",
+        "description": "Test description 1"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 2",
+        "description": "Test description 2"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 3",
+        "description": "Test description 3"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "state": "free",
+        "title": "Test title 4",
+        "description": "Test description 4"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 5",
+        "description": "Test description 5"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 6",
+        "description": "Test description 6"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 7",
+        "description": "Test description 7"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 8",
+        "description": "Test description 8"
+      }
+    ]
+  }
+}

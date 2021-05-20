@@ -1,0 +1,177 @@
+{
+  "config": {
+    "version": "3.0.4",
+    "apps": {
+      "guidify": {
+        "enabled": true
+      },
+      "photoify": {
+        "ebnabled": false
+      }
+    },
+    "ads": {
+      "enabled": true,
+      "mode_ads_banner": "facebook",
+      "mode_ads_interstitial": "admob",
+      "mode_ads_native": "admob",
+      "mode_ads_mediumrect": "facebook",
+      "mode_ads_rewarded": "",
+      "adcolony": {
+        "adcolony_app_id": "appaa814d2551b94cdb81",
+        "adcolony_interstitial_id": "vz8a72e7b691d04847bb",
+        "adcolony_banner_id": "vz50e276396cb0423581",
+        "adcolony_rewarded_id": ""
+      },
+      "admob": {
+        "admob_banner_id": "ca-app-pub-3940256099942544/6300978111",
+        "admob_interstitial_id": [
+          "ca-app-pub-3940256099942544/1033173712",
+          "ca-app-pub-3940256099942544/1033173712",
+          "ca-app-pub-3940256099942544/1033173712"
+        ],
+        "admob_native_id": "ca-app-pub-3940256099942544/2247696110",
+        "admob_mediumrect_id": "ca-app-pub-3940256099942544/6300978111",
+        "admob_rewarded_id": "",
+        "admob_unit_id": ""
+      },
+      "appodeal": {
+        "appodeal_app_key": "dfaea284bc7f8f1b7919e2271a495f8afbad91650112bf3a"
+      },
+      "facebook": {
+        "facebook_banner_id": "IMG_16_9_APP_INSTALL#173186393601951_299214384332484",
+        "facebook_interstitial_id": "IMG_16_9_APP_INSTALL#173186393601951_288058788781377",
+        "facebook_native_id": "VID_HD_9_16_39S_APP_INSTALL#173186393601951_356298065290782",
+        "facebook_mediumrect_id": "IMG_16_9_APP_INSTALL#893870180793867_1789798824534327"
+      },
+      "unity": {
+        "unity_app_id": "4100687",
+        "unity_banner_id": "Banner_Android",
+        "unity_interstitial_id": "Interstitial_Android",
+        "unity_rewarded_id": ""
+      },
+      "ironsource": {
+      }
+    },
+    "update": {
+      "_comment": "action= , url, app id",
+      "state": false,
+      "title": "Update your app",
+      "message": "New Version!",
+      "action": "",
+      "closeable": true
+    },
+    "exit": {
+      "_comment": "type=text, content=put your text here - type=native_ad - type=banner, image=example link=example",
+      "type": "native_ad",
+      "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+      "link": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+      "loader": {
+        "enabled": true,
+        "duration": 4000
+      }
+    },
+    "rating": {
+      "enabled": true
+    },
+    "popup": {
+      "_comment": "link= , appid, url",
+      "enabled": false,
+      "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+      "title": "Toca Life!\uD83C\uDF89",
+      "description": "Download and Enjoy!\n\uD83D\uDC4FNeon Rainbow Apartment\nThe new Life Wordl Town!\nBuild stories\nCreate Your World!",
+      "link": "http://google.com"
+    },
+    "activities": {
+      "splash": {
+        "duration": 5000
+      },
+      "start": {
+        "enabled": false,
+        "loader": {
+          "enabled": true,
+          "duration": 4000
+        }
+      },
+      "main": {
+        "_comment": "more=put developer id",
+        "more": ""
+      },
+      "list": {
+        "item": {
+          "_comment": "type = image, text, card",
+          "type": "image",
+          "loader": {
+            "enabled": true,
+            "duration": 4000
+          }
+        }
+      },
+      "item": {
+        "type": "text, webview, richtext",
+        "native_ad": false,
+        "banner_ad": true,
+        "interstitial_ad": false
+      }
+    }
+  },
+  "data": {
+    "items": [
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 0",
+        "description": "Test description 0"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 1",
+        "description": "Test description 1",
+        "rewarded": true
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 2",
+        "description": "Test description 2"
+      },
+      {
+        "type": "native_ad"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 3",
+        "description": "Test description 3"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "state": "free",
+        "title": "Test title 4",
+        "description": "Test description 4"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 5",
+        "description": "Test description 5"
+      },
+      {
+        "type": "native_ad"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 6",
+        "description": "Test description 6"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 7",
+        "description": "Test description 7"
+      },
+      {
+        "type": "native_ad"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 8",
+        "description": "Test description 8"
+      }
+    ]
+  }
+}

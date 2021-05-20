@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Guidify</string>
+    <string name="network_error">Network error…</string>
+    <string name="network_error_message">Internet is not available, reconnect network and try again.</string>
+
+    <string name="text_show_ad">Show ad</string>
+    <string name="text_Loading_ad">Loading…</string>
+    <string name="text_unlock_ad">Unlock</string>
+    <string name="text_title_show_ad">Show ad for unlock</string>
+
+    <string name="text_no_wifi">Please check your internet connection and try again.</string>
+    <string name="text_btn_no_wifi">Try Again</string>
+
+
+    <string name="test_device_id" />
+
+    <string name="text_privacy_policy">Privacy Policy</string>
+    <string name="ad_attribution">Ad</string>
+
+    <string name="splash_loading">Loading…</string>
+
+    <string name="text_start">Start</string>
+    <string name="text_exit">Exit</string>
+
+    <string name="text_btn_update">Update</string>
+    <string name="text_update_title">Update your app:</string>
+    <string name="text_update_msg">Update to new version!</string>
+
+    <string name="text_dialog_rating">Please give us 5-star</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+
+</resources>

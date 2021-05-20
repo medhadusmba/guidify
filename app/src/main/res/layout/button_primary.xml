@@ -1,0 +1,20 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="text"
+            type="String" />
+
+    </data>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_large"
+        android:text="@{text}"
+        android:textAllCaps="false"
+        android:textStyle="bold" />
+
+
+</layout>

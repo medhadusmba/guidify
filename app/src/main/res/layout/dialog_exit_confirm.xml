@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_large"
+        android:gravity="center_vertical|center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_mlarge">
+
+        <TextView
+            android:id="@+id/dialog_primary_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="Do You Want To Exit?"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/grey_60" />
+    </LinearLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/dialog_exit_loader"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:maxWidth="200dp"
+        android:maxHeight="200dp"
+        android:visibility="gone"
+        app:SpinKit_Color="@color/color_primary" />
+
+    <LinearLayout
+        android:id="@+id/dialog_exit_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_confirm_yes"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded_primary"
+            android:paddingLeft="@dimen/spacing_mlarge"
+            android:paddingRight="@dimen/spacing_mlarge"
+            android:text="YES"
+            android:textColor="@android:color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_confirm_no"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded_outline_primary"
+            android:paddingLeft="@dimen/spacing_mlarge"
+            android:paddingRight="@dimen/spacing_mlarge"
+            android:text="NO"
+            android:textColor="@color/color_primary" />
+
+    </LinearLayout>
+
+</merge>
+
