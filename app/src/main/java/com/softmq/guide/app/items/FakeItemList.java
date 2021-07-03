@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.nitrico.lastadapter.BR;
 import com.github.nitrico.lastadapter.LastAdapter;
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.data.fake.FakeGenerator;
 
 import java.util.ArrayList;

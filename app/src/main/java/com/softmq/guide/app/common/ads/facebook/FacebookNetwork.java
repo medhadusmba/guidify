@@ -4,29 +4,30 @@ import android.app.Activity;
 
 import com.facebook.ads.AdSettings;
 import com.facebook.ads.AudienceNetworkAds;
-import com.softmq.guide.BuildConfig;
+import com.softmq.guide.app.BuildConfig;
 import com.softmq.guide.app.common.ads.core.AdsConfig;
-import com.softmq.guide.app.common.ads.core.DefaultAds;
+import com.softmq.guide.app.common.ads.core.BaseAds;
 import com.softmq.guide.app.common.ads.facebook.banners.FacebookBannerAds;
 import com.softmq.guide.app.common.ads.facebook.interstitials.FacebookInterstitialAds;
 import com.softmq.guide.app.common.ads.facebook.mediumrect.FacebookMediumRectAds;
 import com.softmq.guide.app.common.ads.facebook.natives.FacebookNativeAds;
+import com.softmq.guide.app.common.ads.facebook.rewarded.FacebookRewardedAds;
 
 import org.jetbrains.annotations.NotNull;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class FacebookNetwork extends DefaultAds {
+public class FacebookNetwork extends BaseAds {
     private final Activity activity;
 
     public FacebookNetwork(Activity activity, AdsConfig config) {
         super(new FacebookBannerAds(activity.getApplicationContext(), config.facebook()),
                 new FacebookInterstitialAds(activity, config.facebook()),
                 new FacebookNativeAds(activity.getApplicationContext(), config.facebook()),
-                new FacebookMediumRectAds(activity.getApplicationContext(), config.facebook()));
+                new FacebookMediumRectAds(activity.getApplicationContext(), config.facebook()),
+                new FacebookRewardedAds(activity.getApplicationContext(), config.facebook()));
         this.activity = activity;
     }
-
 
     @NotNull
     @Override

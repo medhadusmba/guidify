@@ -4,6 +4,7 @@ import com.softmq.guide.app.common.ads.core.banners.BannerAdSource;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
 import com.softmq.guide.app.common.ads.core.mediumrects.MediumRectAdSource;
 import com.softmq.guide.app.common.ads.core.natives.NativeAdSource;
+import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
 
 import java9.util.concurrent.CompletableFuture;
 
@@ -15,6 +16,7 @@ public interface Ads {
     NativeAdSource natives();
 
     MediumRectAdSource mediumrects();
+    RewardedAdSource rewardedAds();
 
     default Boolean isInitialized() {
         return false;

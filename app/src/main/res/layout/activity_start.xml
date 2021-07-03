@@ -5,29 +5,20 @@
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff"
         android:orientation="vertical"
         tools:context=".app.StartActivity">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="end"
-            android:text=""
-            android:textAlignment="textEnd"
-            android:textAllCaps="false"
-            android:textColor="@color/color_primary"
-            android:textStyle="bold" />
+
 
         <LinearLayout
             android:id="@+id/app_ad_natives"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
+            android:layout_gravity="top"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"></LinearLayout>
+            android:gravity="top"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/spacing_xxxlarge"/>
 
         <ProgressBar
             android:id="@+id/activity_start_loader"
@@ -45,10 +36,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/spacing_large"
             android:background="@color/color_primary"
             android:visibility="gone"
             app:text='@{"Start"}' />
 
     </LinearLayout>
+
 </layout>

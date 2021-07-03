@@ -34,7 +34,7 @@ public class FacebookBannerAds implements BannerAdSource {
     }
 
     public FacebookBannerAds(Context context, FacebookConfig config) {
-        this(context, config, AdSize.BANNER_HEIGHT_90);
+        this(context, config, AdSize.BANNER_HEIGHT_50);
     }
 
     @Override

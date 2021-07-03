@@ -1,5 +1,8 @@
 package com.softmq.guide.app.common.ads.core.natives;
 
-public interface NativeAdSource {
+import com.softmq.guide.app.common.ads.core.AsyncAdSource;
+import com.softmq.guide.app.common.ads.core.InlineAdSource;
+
+public interface NativeAdSource extends InlineAdSource {
     NativeAd nativeAd();
 }

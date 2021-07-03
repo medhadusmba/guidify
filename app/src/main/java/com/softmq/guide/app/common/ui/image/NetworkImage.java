@@ -5,6 +5,10 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
+
 public class NetworkImage {
     private final String url;
     private final ImageView view;
@@ -16,7 +20,10 @@ public class NetworkImage {
     }
 
     public void show() {
-        if (!url.isEmpty()) {
+        if (StringUtils.isNotBlank(url)
+                && Objects.nonNull(view)
+                && Objects.nonNull(view.getRootView())
+                && Objects.nonNull(view.getRootView().getContext())) {
             Picasso picasso = getPicasso(view);
             picasso
                     .load(url)
@@ -24,8 +31,6 @@ public class NetworkImage {
                     .centerCrop()
                     // .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
                     .into(view);
-
-
         }
     }
 

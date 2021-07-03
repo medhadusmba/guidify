@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcfcfc"
-    android:orientation="vertical"
-    tools:context=".app.ItemActivity">
+    android:orientation="vertical">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -17,7 +15,8 @@
             android:id="@+id/appBar"
             style="@style/Theme.Guidify.ActivityItemAppBar"
             android:layout_width="match_parent"
-            android:layout_height="140dp">
+            android:layout_height="140dp"
+            android:visibility="gone">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/activity_item_title"
@@ -66,109 +65,122 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-        <androidx.core.widget.NestedScrollView
+        <FrameLayout
+            android:id="@+id/activity_item_ads_top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBar"
+            android:background="@color/white"
+            android:padding="@dimen/spacing_middle"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/app_ad_mediumrect_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:layout_editor_absoluteX="0dp">
+
+                    <LinearLayout
+                        android:id="@+id/app_ad_mediumrect_ad_linear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/app_ad_mediumrect_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#000"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/app_ad_natives"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:orientation="vertical"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:background="@drawable/rounded_with_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/activity_item_ads_top"
+            android:layout_marginHorizontal="@dimen/spacing_middle"
+            android:id="@+id/activity_item_content_scroll"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:orientation="vertical">
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/activity_item_content"
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-
-                            <LinearLayout
-                                android:id="@+id/app_ad_mediumrect_linear"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:visibility="gone"
-                                tools:layout_editor_absoluteX="0dp">
-
-                                <LinearLayout
-                                    android:id="@+id/app_ad_mediumrect_ad_linear"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:orientation="horizontal" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/app_ad_mediumrect_container"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:background="#000"
-                                android:orientation="vertical"
-                                android:visibility="gone" />
-
-
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/app_ad_natives"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:visibility="gone" />
-
-                        <TextView
-                            android:id="@+id/activity_item_content"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="7dp"
-                            android:layout_marginVertical="17dp"
-                            android:gravity="center_horizontal"
-                            android:padding="6dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/color_primary"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </ScrollView>
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/activity_item_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:background="@color/color_primary_light"
+        android:orientation="vertical"
+        android:visibility="gone" />
+    <include
+        android:id="@+id/activity_item_error"
+        layout="@layout/layout_no_content_error"
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
 
         <LinearLayout
             android:id="@+id/bnrlinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/spacing_large"
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"

@@ -36,5 +36,35 @@
       <option name="name" value="MavenRepo" />
       <option name="url" value="https://repo.maven.apache.org/maven2/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven3" />
+      <option name="name" value="maven3" />
+      <option name="url" value="https://developer.huawei.com/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven4" />
+      <option name="name" value="maven4" />
+      <option name="url" value="https://android-sdk.is.com/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Tapjoy's maven repo" />
+      <option name="name" value="Tapjoy's maven repo" />
+      <option name="url" value="https://sdk.tapjoy.com/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Huxter" />
+      <option name="name" value="Huxter" />
+      <option name="url" value="https://maven.pkg.github.com/medhadusmba/Huxter" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven5" />
+      <option name="name" value="maven5" />
+      <option name="url" value="https://adcolony.bintray.com/AdColony" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://android-sdk.tapdaq.com" />
+    </remote-repository>
   </component>
 </project>

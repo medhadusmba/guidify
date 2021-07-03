@@ -5,11 +5,11 @@ public class TestFacebookConfig extends FacebookConfig {
         super("IMG_16_9_APP_INSTALL#173186393601951_299214384332484",
                 "IMG_16_9_APP_INSTALL#173186393601951_288058788781377",
                 "VID_HD_9_16_39S_APP_INSTALL#173186393601951_356298065290782",
-                "IMG_16_9_APP_INSTALL#173186393601951_299214384332484"
+                "IMG_16_9_APP_INSTALL#173186393601951_299214384332484", ""
         );
     }
 
-    private TestFacebookConfig(String facebookBannerUnitId, String facebookInterUnitId, String facebookNativeUnitId, String facebookMediumRectId) {
-        super(facebookBannerUnitId, facebookInterUnitId, facebookNativeUnitId, facebookMediumRectId);
+    private TestFacebookConfig(String facebookBannerUnitId, String facebookInterUnitId, String facebookNativeUnitId, String facebookMediumRectId, String facebookRewardedId) {
+        super(facebookBannerUnitId, facebookInterUnitId, facebookNativeUnitId, facebookMediumRectId, facebookRewardedId);
     }
 }

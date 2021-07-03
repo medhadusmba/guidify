@@ -4,15 +4,17 @@ public class ItemActivityConfig {
     private final boolean nativeAd;
     private final boolean bannerAd;
     private final boolean interstitialAd;
+    private boolean mediumrectAd;
 
-    public ItemActivityConfig(boolean nativeAd, boolean bannerAd, boolean interstitialAd) {
+    public ItemActivityConfig(boolean nativeAd, boolean bannerAd, boolean interstitialAd, boolean mediumrectAd) {
         this.nativeAd = nativeAd;
         this.bannerAd = bannerAd;
         this.interstitialAd = interstitialAd;
+        this.mediumrectAd = mediumrectAd;
     }
 
     public ItemActivityConfig() {
-        this(false, false, false);
+        this(false, false, false, false);
     }
 
 
@@ -24,7 +26,10 @@ public class ItemActivityConfig {
         return bannerAd;
     }
 
-    public boolean hasInterstitial() {
+    public boolean hasInterstitialAd() {
         return interstitialAd;
+    }
+    public boolean hasMediumrectAd() {
+        return mediumrectAd;
     }
 }

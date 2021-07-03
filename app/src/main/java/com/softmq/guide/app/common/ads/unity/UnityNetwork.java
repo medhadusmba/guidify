@@ -2,9 +2,9 @@ package com.softmq.guide.app.common.ads.unity;
 
 import android.app.Activity;
 
-import com.softmq.guide.BuildConfig;
+import com.softmq.guide.app.BuildConfig;
 import com.softmq.guide.app.common.ads.core.AdsConfig;
-import com.softmq.guide.app.common.ads.core.DefaultAds;
+import com.softmq.guide.app.common.ads.core.BaseAds;
 import com.softmq.guide.app.common.ads.core.banners.BannerAdSource;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
 import com.softmq.guide.app.common.ads.unity.banners.UnityBannerAds;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class UnityNetwork extends DefaultAds {
+public class UnityNetwork extends BaseAds {
     private final Activity activity;
     private final AdsConfig config;
 

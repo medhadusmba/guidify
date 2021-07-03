@@ -9,6 +9,7 @@ import com.softmq.guide.app.common.ads.core.banners.BannerAdSource;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
 import com.softmq.guide.app.common.ads.core.mediumrects.MediumRectAdSource;
 import com.softmq.guide.app.common.ads.core.natives.NativeAdSource;
+import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
 import com.softmq.guide.app.config.SmartConfig;
 
 import java9.util.concurrent.CompletableFuture;
@@ -48,6 +49,11 @@ public class AppAds implements Ads {
     @Override
     public MediumRectAdSource mediumrects() {
         return origin.mediumrects();
+    }
+
+    @Override
+    public RewardedAdSource rewardedAds() {
+        return origin.rewardedAds();
     }
 
     public void interstitial() {

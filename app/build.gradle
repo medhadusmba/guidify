@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.application'
-    //id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 }
 
 android {
@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.softmq.guide.app"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -37,13 +37,17 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.3.0-rc01'
+    implementation 'androidx.appcompat:appcompat:1.4.0-alpha02'
+    implementation 'androidx.core:core:1.5.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
 
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     implementation 'net.sourceforge.streamsupport:android-retrofuture:1.7.3'
     implementation 'org.apache.commons:commons-collections4:4.4'
@@ -53,25 +57,75 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
-    androidTestImplementation 'androidx.test:rules:1.4.0-alpha06'
+    androidTestImplementation 'androidx.test:rules:1.4.0-beta02'
 
     implementation 'com.android.volley:volley:1.2.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.nitrico.lastadapter:lastadapter:2.3.0'
     implementation 'com.github.sujithkanna:smileyrating:2.0.0'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation "com.airbnb.android:lottie:3.6.0"
+    implementation 'com.onesignal:OneSignal:4.4.0'
 
-    implementation 'com.google.android.gms:play-services-ads:20.1.0'
+
     implementation 'com.google.android.play:core:1.10.0'
     //implementation 'com.google.android.gms:play-services-basement:17.6.0'
     //implementation 'com.google.firebase:firebase-analytics:18.0.2'
-    implementation 'com.facebook.android:audience-network-sdk:6.4.0'
-    implementation 'com.google.ads.mediation:facebook:6.4.0.0'
 
-    implementation 'com.adcolony:sdk:4.4.1'
-    implementation 'com.unity3d.ads:unity-ads:3.7.1'
-    //implementation 'com.appodeal.ads:sdk:2.9.3.+'
-    //implementation 'com.onesignal:OneSignal:3.15.2'
+    //SDK ADS
+    implementation "com.softmq.huxter:core:2.0.0"
+    implementation "com.softmq.huxter:admob:2.0.0"
+    implementation "com.softmq.huxter:mopub:2.0.0"
+    implementation "com.softmq.huxter:tapdaq:2.0.0"
+
+    implementation 'com.facebook.android:audience-network-sdk:6.5.1'
+    implementation 'com.adcolony:sdk:4.5.0'
+    implementation 'com.unity3d.ads:unity-ads:3.7.2'
+    implementation 'com.inmobi.monetization:inmobi-ads:9.1.9'
+    implementation 'com.tapjoy:tapjoy-android-sdk:12.8.1'
+    implementation 'com.vungle:publisher-sdk-android:6.9.1'
 
 
+    implementation 'com.huawei.hms:ads-lite:13.4.41.302'
+    implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
+    implementation 'com.huawei.hms:ads-installreferrer:3.4.39.302'
+
+    //Mediation Admob
+    implementation 'com.google.ads.mediation:facebook:6.5.0.0'
+    implementation 'com.google.ads.mediation:ironsource:7.1.6.0'
+    implementation 'com.google.ads.mediation:adcolony:4.5.0.0'
+    implementation 'com.google.ads.mediation:unity:3.7.2.0'
+    implementation 'com.google.ads.mediation:inmobi:9.1.9.0'
+    implementation 'com.google.ads.mediation:mopub:5.17.0.0'
+    implementation 'com.google.ads.mediation:tapjoy:12.8.1.0'
+    implementation 'com.google.ads.mediation:vungle:6.9.1.1'
+
+    //Mediation Mopub
+    implementation 'com.mopub.mediation:facebookaudiencenetwork:6.5.1.0'
+    implementation 'com.mopub.mediation:tapjoy:12.8.1.0'
+    implementation 'com.mopub.mediation:unityads:3.7.2.0'
+    implementation 'com.mopub.mediation:vungle:6.9.1.0'
+    implementation 'com.mopub.mediation:inmobi:9.1.9.1'
+    implementation 'com.mopub.mediation:adcolony:4.5.0.1'
+
+    //Mediation Tapdaq
+        //Adapters - These will automatically pull ad network dependencies
+    implementation('com.tapdaq.sdk:TapdaqFANAdapter:7.8.3'){
+        exclude group:'com.facebook.android'
+    }
+    implementation( 'com.tapdaq.sdk:TapdaqAdColonyAdapter:7.8.3'){
+        exclude group:'com.adcolony'
+    }
+    implementation( 'com.tapdaq.sdk:TapdaqInmobiAdapter:7.8.3'){
+        exclude group:'com.inmobi.monetization'
+    }
+    implementation( 'com.tapdaq.sdk:TapdaqTapjoyAdapter:7.8.3'){
+        exclude group:'com.tapjoy'
+    }
+    implementation ('com.tapdaq.sdk:TapdaqUnityAdsAdapter:7.8.3'){
+        exclude group:'com.tapdaq.networks', module:'SDKUnityAds'
+    }
+    implementation( 'com.tapdaq.sdk:TapdaqVungleAdapter:7.8.3'){
+        exclude group:'com.vungle'
+    }
 }

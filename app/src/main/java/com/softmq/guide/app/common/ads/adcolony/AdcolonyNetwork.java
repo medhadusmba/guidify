@@ -7,13 +7,13 @@ import com.adcolony.sdk.AdColonyAppOptions;
 import com.softmq.guide.app.common.ads.adcolony.banners.AdcolonyBannerAds;
 import com.softmq.guide.app.common.ads.adcolony.interstitials.AdcolonyInterstitialAds;
 import com.softmq.guide.app.common.ads.core.AdsConfig;
-import com.softmq.guide.app.common.ads.core.DefaultAds;
+import com.softmq.guide.app.common.ads.core.BaseAds;
 
 import org.jetbrains.annotations.NotNull;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class AdcolonyNetwork extends DefaultAds {
+public class AdcolonyNetwork extends BaseAds {
     private static Boolean initialized = false;
     private final Activity activity;
     private final AdsConfig config;

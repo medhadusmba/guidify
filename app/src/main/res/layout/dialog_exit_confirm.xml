@@ -50,8 +50,8 @@
             android:background="@drawable/button_rounded_primary"
             android:paddingLeft="@dimen/spacing_mlarge"
             android:paddingRight="@dimen/spacing_mlarge"
-            android:text="YES"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white"
+            android:text="YES" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/dialog_confirm_no"

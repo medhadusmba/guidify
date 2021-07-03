@@ -3,7 +3,7 @@ package com.softmq.guide.app.items;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.App;
 import com.softmq.guide.app.ItemActivity;
 import com.softmq.guide.app.common.ads.core.natives.NativeAd;
@@ -33,11 +33,11 @@ public class LoadedItem {
             final long WAIT_TIME_ITEMS = app.config().activities().list().item().loader().duration();
             notLoading = false;
             loader.setVisibility(View.VISIBLE);
+            loader.animate().alpha(1).setDuration(WAIT_TIME_LOADER);
             if (WAIT_TIME_ITEMS > 1000) {
-                nativeAd.showNow((ViewGroup) loader.findViewById(R.id.app_ad_natives));
+                nativeAd.show((ViewGroup) loader.findViewById(R.id.app_ad_natives));
             }
 
-            loader.animate().alpha(1).setDuration(WAIT_TIME_LOADER);
             new Delayed(WAIT_TIME_ITEMS, () -> {
                 loader.animate().alpha(0).setDuration(WAIT_TIME_LOADER);
                 new Delayed(WAIT_TIME_LOADER, this::showItem).run();

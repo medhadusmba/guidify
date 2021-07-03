@@ -5,16 +5,18 @@ import com.softmq.guide.app.common.Counter;
 
 public class StartActivityConfig {
     private final boolean enabled;
+    private final int count;
     private final LoaderConfig loaderConfig;
 
-    public StartActivityConfig(boolean enabled, LoaderConfig loaderConfig) {
+    public StartActivityConfig(boolean enabled, int count, LoaderConfig loader) {
 
         this.enabled = enabled;
-        this.loaderConfig = loaderConfig;
+        this.count = count;
+        this.loaderConfig = loader;
     }
 
     public StartActivityConfig() {
-        this(false, new LoaderConfig());
+        this(false,2,  new LoaderConfig());
     }
 
     public boolean isEnabled() {
@@ -27,6 +29,9 @@ public class StartActivityConfig {
 
     public LoaderConfig loader() {
         return loaderConfig;
+    }
+    public int count() {
+        return count;
     }
 
     public static class LoaderConfig {

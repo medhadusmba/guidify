@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.widget.ImageView;
 
 import com.hsalf.smileyrating.SmileyRating;
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.core.Listener;
 import com.softmq.guide.app.common.data.KeyValueStore;
 import com.softmq.guide.app.common.data.Preferences;
@@ -40,7 +40,7 @@ public class RatingDialog {
         btnClose.setOnClickListener(view -> dialog.dismiss());
         SmileyRating smileyRating = dialog.findViewById(R.id.smile_rating);
         smileyRating.setRating(SmileyRating.Type.GREAT, true);
-        smileyRating.setRating(5, true);
+        smileyRating.setRating(4, true);
         smileyRating.setSmileySelectedListener(type -> {
             store.put(DIALOG_RATING, Integer.toString(type.getRating()));
             callback.accept(type.getRating());

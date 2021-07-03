@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="color_primary">@color/deep_purple_500</color>
-    <color name="color_primary_dark">@color/deep_purple_700</color>
-    <color name="color_primary_light">@color/deep_purple_300</color>
+    <resources>
+    <color name="color_background">@color/white</color>
+    <color name="color_text" >@color/black</color>
+
+    <color name="color_primary">@color/red_700</color>
+    <color name="color_primary_dark">@color/red_900</color>
+    <color name="color_primary_light">@color/red_300</color>
     <color name="color_accent">#FF4081</color>
     <color name="color_accent_dark">#F50057</color>
     <color name="color_accent_light">#FF80AB</color>
 
+    <color name="colorGradientStart">@color/color_primary_dark</color>
+    <color name="colorGradientCenter">@color/color_primary</color>
+    <color name="colorGradientEnd">@color/color_primary_light</color>
+    <color name="colorStripeStart">@color/color_primary_dark</color>
+    <color name="colorStripeEnd">@color/color_primary_light</color>
+
+    <!--    DO NOT CHANGE-->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_20">#33000000</color>
     <color name="overlay_dark_30">#4D000000</color>

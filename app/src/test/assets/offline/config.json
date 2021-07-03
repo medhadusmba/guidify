@@ -1,5 +1,6 @@
 {
   "config": {
+    "version": "4.0.0",
     "ads": {
       "enabled": true,
       "adcolony": {
@@ -53,13 +54,13 @@
     },
     "activities": {
       "splash": {
-        "duration": 5000
+        "duration": 10000
       },
       "start": {
         "enabled": true,
         "loader": {
           "enabled": true,
-          "duration": 4000
+          "duration": 5000
         }
       },
       "main": {
@@ -87,7 +88,10 @@
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
         "title": "Test title 1",
-        "description": "Test description 1"
+        "description": "Test description 1",
+        "locker":{
+          "type": "rewarded_ad"
+        }
       },
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",

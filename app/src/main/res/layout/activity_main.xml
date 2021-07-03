@@ -3,100 +3,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:orientation="vertical"
-    tools:context=".app.MainActivity">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/app_ad_natives"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/spacing_xxxlarge"
         android:layout_weight="1"
-        android:gravity="center"
+        android:gravity="top"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/activity_main_loader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/color_primary"
-            android:indeterminateTintMode="src_atop" />
-
     </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_large"
         android:alpha="0"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_xlarge"
             android:gravity="center"
-            android:padding="3dp">
+            android:padding="3dp"
+            android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/activity_main_loader"
+                android:layout_marginHorizontal="4dp"
+                android:indeterminate="true"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:indeterminateTint="@color/color_primary"
+                android:indeterminateTintMode="src_atop" />
 
             <Button
                 android:id="@+id/start"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginHorizontal="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="4dp"
                 android:background="@drawable/start"
                 android:text="Start"
                 android:textAllCaps="false"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"
+                />
 
             <LinearLayout
                 android:id="@+id/share"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginHorizontal="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="4dp"
                 android:background="@drawable/sharebtn"
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:background="@drawable/share" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/rate"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginHorizontal="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="4dp"
                 android:background="@drawable/ratebrn"
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:background="@drawable/ic_rate" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/more"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginHorizontal="4dp"
-                android:background="@drawable/gradient_more"
-                android:gravity="center">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/more"-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginHorizontal="4dp"-->
+<!--                android:background="@drawable/gradient_more"-->
+<!--                android:gravity="center">-->
 
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/more" />
-            </LinearLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:background="@drawable/more" />-->
+<!--            </LinearLayout>-->
 
 
         </LinearLayout>
+
     </LinearLayout>
 
 

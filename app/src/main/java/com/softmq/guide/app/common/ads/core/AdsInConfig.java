@@ -11,6 +11,7 @@ import com.softmq.guide.app.common.ads.core.natives.NativeAdSource;
 import com.softmq.guide.app.common.ads.core.networks.AdNetwork;
 import com.softmq.guide.app.common.ads.core.networks.AdNetworksInConfig;
 import com.softmq.guide.app.common.ads.core.networks.NoAdNetwork;
+import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
 
 import java9.util.concurrent.CompletableFuture;
 
@@ -53,5 +54,10 @@ public class AdsInConfig implements Ads {
     @Override
     public MediumRectAdSource mediumrects() {
         return mixed.ads().mediumrects();
+    }
+
+    @Override
+    public RewardedAdSource rewardedAds() {
+        return mixed.ads().rewardedAds();
     }
 }

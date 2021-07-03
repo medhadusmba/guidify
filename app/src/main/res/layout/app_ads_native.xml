@@ -4,14 +4,14 @@
     android:id="@+id/app_ad_native"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="5dp"
-    android:orientation="vertical">
+    android:layout_marginBottom="0dp"
+    android:orientation="horizontal">
 
     <ScrollView
 
         android:id="@+id/app_ads_native_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="0dp"
         android:visibility="gone">
 
@@ -19,7 +19,7 @@
             android:id="@+id/app_ads_native_framelayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="horizontal" />
     </ScrollView>
 
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "681291593396",
+    "project_id": "guidify-ba3ae",
+    "storage_bucket": "guidify-ba3ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681291593396:android:5835b13164c44a466209e1",
+        "android_client_info": {
+          "package_name": "com.softmq.guidify.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681291593396-qtdansehinncvho62t8h2746ts035rch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChFWNAondSssFkvumGTcvrQjLFxW0z_Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681291593396-qtdansehinncvho62t8h2746ts035rch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

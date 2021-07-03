@@ -13,6 +13,7 @@ import com.softmq.guide.app.common.ads.core.banners.BannerAdSource;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
 import com.softmq.guide.app.common.ads.core.mediumrects.MediumRectAdSource;
 import com.softmq.guide.app.common.ads.core.natives.NativeAdSource;
+import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
 import com.softmq.guide.app.common.ads.facebook.FacebookNetwork;
 
 import org.apache.commons.collections4.ListValuedMap;
@@ -35,6 +36,7 @@ public class AdNetworksInConfig implements AdNetwork, Ads {
     public static final String INTERSTITIALS = "interstitials";
     public static final String NATIVES = "natives";
     private static final String MEDIUMRECTS = "mediumrecrts";
+    private static final String REWARDEDADS = "rewardedads";
     private final Activity activity;
     private final AdsConfig config;
     private final MixedAds mixed;
@@ -70,7 +72,7 @@ public class AdNetworksInConfig implements AdNetwork, Ads {
         mixed.put(config.interstitials(), INTERSTITIALS);
         mixed.put(config.natives(), NATIVES);
         mixed.put(config.mediumrects(), MEDIUMRECTS);
-
+        mixed.put(config.rewardedAds(), REWARDEDADS);
         Map<Ads, Collection<String>> map = mixed.asMap().entrySet().stream()
                 .map(entry -> {
                     Pair<Ads, Collection<String>> pair;
@@ -86,7 +88,7 @@ public class AdNetworksInConfig implements AdNetwork, Ads {
                     }
                     return pair;
                 }).collect(Collectors.toMap(Pair::getKey, Pair::getValue));
-        return new MixedAds(getAdsByFormat(map, BANNERS), getAdsByFormat(map, INTERSTITIALS), getAdsByFormat(map, NATIVES), getAdsByFormat(map, MEDIUMRECTS));
+        return new MixedAds(getAdsByFormat(map, BANNERS), getAdsByFormat(map, INTERSTITIALS), getAdsByFormat(map, NATIVES), getAdsByFormat(map, MEDIUMRECTS), getAdsByFormat(map, REWARDEDADS));
     }
 
     @NotNull
@@ -94,13 +96,6 @@ public class AdNetworksInConfig implements AdNetwork, Ads {
         return getNetworkAdsByNameUsingClassName(entry);
     }
 
-    //TODO: to remove unnecessary code
-    private Ads getNetworkAdsByNameUsingMapping(Map.Entry<String, Collection<String>> entry) {
-        HashMap<String, Ads> mapping = new HashMap<>();
-        mapping.put("adcolony", new AdcolonyNetwork(activity, config));
-        mapping.put("facebook", new FacebookNetwork(activity, config));
-        return mapping.get(entry.getKey());
-    }
 
     @NotNull
     private Ads getNetworkAdsByNameUsingClassName(Map.Entry<String, Collection<String>> entry) throws IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException, ClassNotFoundException {
@@ -131,5 +126,10 @@ public class AdNetworksInConfig implements AdNetwork, Ads {
     @Override
     public MediumRectAdSource mediumrects() {
         return mixed.mediumrects();
+    }
+
+    @Override
+    public RewardedAdSource rewardedAds() {
+        return mixed.rewardedAds();
     }
 }

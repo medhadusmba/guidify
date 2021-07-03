@@ -2,6 +2,8 @@ package com.softmq.guide.app.config;
 
 import com.softmq.guide.app.ActivitiesConfig;
 import com.softmq.guide.app.common.ads.core.AdsConfig;
+import com.softmq.guide.app.common.ads.mopub.MopubConfig;
+import com.softmq.guide.app.common.ads.tapdaq.TapdaqConfig;
 import com.softmq.guide.app.exit.ExitConfig;
 import com.softmq.guide.app.items.ItemActivityConfig;
 import com.softmq.guide.app.items.ListActivityConfig;
@@ -103,29 +105,33 @@ public class JsonConfig implements AppConfig {
 
         JSONObject startActivity = activities.getJSONObject("start");
         boolean startActivityEnabled = startActivity.getBoolean("enabled");
+        int startActivityCount = startActivity.getInt("count");
         JSONObject startActivityLoader = startActivity.getJSONObject("loader");
         boolean startActivityLoaderEnabled = startActivityLoader.getBoolean("enabled");
         int startActivityLoaderDuration = startActivityLoader.getInt("duration");
-        StartActivityConfig startActivityConfig = new StartActivityConfig(startActivityEnabled, new StartActivityConfig.LoaderConfig(startActivityLoaderEnabled, startActivityLoaderDuration));
+        StartActivityConfig startActivityConfig = new StartActivityConfig(startActivityEnabled,startActivityCount, new StartActivityConfig.LoaderConfig(startActivityLoaderEnabled, startActivityLoaderDuration));
 
         JSONObject mainActivity = activities.getJSONObject("main");
         String mainActivityMore = mainActivity.getString("more");
         MainActivityConfig mainActivityConfig = new MainActivityConfig(mainActivityMore);
 
         JSONObject listActivity = activities.getJSONObject("list");
+        String listActivityType = listActivity.getString("type");
+
         JSONObject listActivityItem = listActivity.getJSONObject("item");
         String listActivityItemType = listActivityItem.getString("type");
         JSONObject listActivityItemLoader = listActivityItem.getJSONObject("loader");
         boolean listActivityItemLoaderEnable = listActivityItemLoader.getBoolean("enabled");
         int listActivityItemLoaderDuration = listActivityItemLoader.getInt("duration");
-        ListActivityConfig listActivityConfig = new ListActivityConfig(
+        ListActivityConfig listActivityConfig = new ListActivityConfig(listActivityType,
                 new ListActivityConfig.ItemConfig(listActivityItemType,
                         new ListActivityConfig.ItemConfig.Loader(listActivityItemLoaderEnable, listActivityItemLoaderDuration)));
         JSONObject itemActivity = activities.getJSONObject("item");
+        boolean itemActivityMediumRectAd = itemActivity.getBoolean("mediumrect_ad");
         boolean itemActivityNativeAd = itemActivity.getBoolean("native_ad");
         boolean itemActivityBannerAd = itemActivity.getBoolean("banner_ad");
         boolean itemActivityInterstitialAd = itemActivity.getBoolean("interstitial_ad");
-        ItemActivityConfig itemActivityConfig = new ItemActivityConfig(itemActivityNativeAd, itemActivityBannerAd, itemActivityInterstitialAd);
+        ItemActivityConfig itemActivityConfig = new ItemActivityConfig(itemActivityNativeAd, itemActivityBannerAd, itemActivityInterstitialAd, itemActivityMediumRectAd);
 
         return new ActivitiesConfig(splashActivityConfig,
                 startActivityConfig,
@@ -150,6 +156,7 @@ public class JsonConfig implements AppConfig {
         String fbInterstitial = fb.getString("facebook_interstitial_id");
         String fbNative = fb.getString("facebook_native_id");
         String fbMediumRectId = fb.getString("facebook_mediumrect_id");
+        String fbRewardedId = fb.getString("facebook_rewarded_id");
 
         JSONObject admob = ads.getJSONObject("admob");
         String GoogleUnitId = admob.getString("admob_unit_id");
@@ -163,8 +170,7 @@ public class JsonConfig implements AppConfig {
         String GoogleNative = admob.getString("admob_native_id");
         String GoogleVideo = admob.getString("admob_rewarded_id");
 
-        JSONObject appodeal = ads.getJSONObject("appodeal");
-        String AppKeyAppodeal = appodeal.getString("appodeal_app_key");
+        String AppKeyAppodeal = "";
 
         JSONObject unity = ads.getJSONObject("unity");
         String UnityGameId = unity.getString("unity_app_id");
@@ -177,10 +183,33 @@ public class JsonConfig implements AppConfig {
         String adcolonyInterstitialId = adColony.getString("adcolony_interstitial_id");
         String adcolonyBannerId = adColony.getString("adcolony_banner_id");
         String adcolonyRewardedId = adColony.getString("adcolony_rewarded_id");
+
+        JSONObject huawei = ads.getJSONObject("huawei");
+        String huaweiBanner = huawei.getString("huawei_banner_id");
+        String huaweiInterstitial = huawei.getString("huawei_interstitial_id");
+        String huaweiNative = huawei.getString("huawei_native_id");
+        String huaweiRewardedId = huawei.getString("huawei_rewarded_id");
+
+        JSONObject mopub = ads.getJSONObject("mopub");
+        String mopubBanner = mopub.getString("mopub_banner_id");
+        String mopubInterstitial = mopub.getString("mopub_interstitial_id");
+        String mopubNative = mopub.getString("mopub_native_id");
+        String mopubRewardedId = mopub.getString("mopub_rewarded_id");
+        MopubConfig mopubConfig = new MopubConfig(mopubBanner,mopubInterstitial,  mopubNative, mopubRewardedId);
+
+        JSONObject tapdaq = ads.getJSONObject("tapdaq");
+        String tapdaqAppId = tapdaq.getString("tapdaq_app_id");
+        String tapdaqClientKey = tapdaq.getString("tapdaq_client_key");
+        String tapdaqBanner = tapdaq.getString("tapdaq_banner_id");
+        String tapdaqInterstitial = tapdaq.getString("tapdaq_interstitial_id");
+        String tapdaqNative = tapdaq.getString("tapdaq_native_id");
+        String tapdaqRewardedId = tapdaq.getString("tapdaq_rewarded_id");
+        TapdaqConfig tapdaqConfig = new TapdaqConfig(tapdaqAppId, tapdaqClientKey, tapdaqBanner,tapdaqInterstitial,  tapdaqNative, tapdaqRewardedId);
+
         return new AdsConfig(adsEnabled, GoogleUnitId, GoogleBanner, GoogleInterstitial,
-                GoogleVideo, googleMediumRectId, GoogleNative, fbBanner, fbInterstitial, fbNative, fbMediumRectId, UnityGameId, UnityBanner,
+                GoogleVideo, googleMediumRectId, GoogleNative, fbBanner, fbInterstitial, fbNative, fbMediumRectId,fbRewardedId,  UnityGameId, UnityBanner,
                 UnityInterstitial, UnityVideo, AppKeyAppodeal, AdColonyAppId, adcolonyBannerId, adcolonyInterstitialId, adcolonyRewardedId,
-                bannerAdsMode, interstitialAdsMode, rewardedAdsMode, nativeAdsMode, mediumRectMode);
+                huaweiBanner, huaweiInterstitial, huaweiNative, huaweiRewardedId, mopubConfig, tapdaqConfig, bannerAdsMode, interstitialAdsMode, rewardedAdsMode, nativeAdsMode, mediumRectMode);
     }
 
     @Override

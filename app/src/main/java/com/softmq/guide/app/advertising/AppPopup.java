@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.App;
 import com.softmq.guide.app.common.ui.image.NetworkImage;
 import com.softmq.guide.app.common.ui.internet.Link;

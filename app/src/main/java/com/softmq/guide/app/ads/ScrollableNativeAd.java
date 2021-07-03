@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.ads.core.natives.NativeAd;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
 

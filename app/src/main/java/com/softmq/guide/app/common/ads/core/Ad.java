@@ -8,4 +8,5 @@ public interface Ad {
     CompletableFuture<Void> show(AdPlacement placement);
 
     CompletableFuture<Void> showNow(AdPlacement placement);
+
 }

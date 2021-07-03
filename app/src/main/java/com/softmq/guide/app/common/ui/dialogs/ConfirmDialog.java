@@ -3,7 +3,7 @@ package com.softmq.guide.app.common.ui.dialogs;
 import android.app.Activity;
 import android.view.View;
 
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.core.Listener;
 import com.softmq.guide.app.common.ui.Showable;
 

@@ -29,7 +29,6 @@ public class DelayedNavigator extends Navigator {
         new Delayed(delayMillis, () -> {
             super.navigateTo(other);
             listener.run();
-
         }).run();
     }
 }

@@ -9,7 +9,7 @@ public class RatingConfig {
     }
 
     public RatingConfig() {
-        this.enable = true;
+        this.enable = false;
     }
 
     public boolean isEnabled() {

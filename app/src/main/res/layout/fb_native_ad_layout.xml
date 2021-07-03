@@ -101,7 +101,7 @@
             android:layout_height="45dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="#4286F4"
+            android:background="@color/color_primary"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
             android:textColor="@android:color/white"

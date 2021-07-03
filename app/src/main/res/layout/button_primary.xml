@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_large"
         android:text="@{text}"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textStyle="bold" />
 
 

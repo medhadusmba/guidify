@@ -3,8 +3,10 @@ package com.softmq.guide.app.exit;
 import android.app.Activity;
 
 import com.softmq.guide.app.App;
+import com.softmq.guide.app.ThankYouActivity;
 import com.softmq.guide.app.common.ui.Showable;
 import com.softmq.guide.app.common.ui.dialogs.ConfirmDialog;
+import com.softmq.guide.app.common.ui.navigation.Navigator;
 
 public class ExitDialog implements Showable {
     private final App app;
@@ -21,7 +23,7 @@ public class ExitDialog implements Showable {
     public void show() {
         dialog = new ConfirmDialog(activity, new ExitView(app, activity, type).asView(), (answer) -> {
             if (answer) {
-                activity.finishAffinity();
+                new Navigator(activity).navigateTo(ThankYouActivity.class);
             }
         }, true);
         dialog.show();

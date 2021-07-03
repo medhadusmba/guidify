@@ -9,6 +9,8 @@ import com.softmq.guide.app.exit.ExitConfig;
 import com.softmq.guide.app.rate.RatingConfig;
 import com.softmq.guide.app.update.UpdateConfig;
 
+import java.util.Objects;
+
 import java9.util.concurrent.CompletableFuture;
 
 public class SmartConfig implements AppConfig {
@@ -18,7 +20,7 @@ public class SmartConfig implements AppConfig {
 
     public SmartConfig(Context context) {
         this.context = context;
-        if (config == null) {
+        if (Objects.isNull(config)) {
             config = new DefaultConfig();
         }
     }

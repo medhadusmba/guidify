@@ -6,7 +6,7 @@ import com.softmq.guide.app.common.ads.core.banners.NoBannerAds;
 import com.softmq.guide.app.common.ads.core.interstitials.NoInterstitialAds;
 import com.softmq.guide.app.common.ads.core.natives.NoNativeAds;
 
-public class NoAds extends DefaultAds {
+public class NoAds extends BaseAds {
 
     public NoAds() {
         super(new NoBannerAds(), new NoInterstitialAds(), new NoNativeAds());

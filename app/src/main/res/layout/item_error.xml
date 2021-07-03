@@ -1,0 +1,22 @@
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="item"
+            type="com.softmq.guide.app.items.Item" />
+
+
+    </data>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/item_error"
+        layout="@layout/layout_no_content_error"
+        android:visibility="gone" />
+</FrameLayout>
+</layout>

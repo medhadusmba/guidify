@@ -1,11 +1,14 @@
 package com.softmq.guide.app;
 
 import android.app.Activity;
+import android.view.View;
 
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.github.nitrico.lastadapter.ItemType;
+import com.onesignal.OneSignal;
 import com.softmq.guide.app.ads.AppAds;
 import com.softmq.guide.app.common.core.Listener;
 import com.softmq.guide.app.common.ui.navigation.Navigator;
@@ -30,6 +33,7 @@ public class App {
     private final AppSharing sharing;
     private final AppExiting exiting;
     private final AppUpdating updating;
+    private Activity activity;
 
 
     public App(Activity activity) {
@@ -42,9 +46,19 @@ public class App {
         this.exiting = new AppExiting(this, activity, config);
         this.updating = new AppUpdating(activity, config);
 
+        this.activity = activity;
     }
 
     public CompletableFuture<Void> initialize() {
+
+        if(Config.ONESIGNAL_ENABLED){
+            // Enable verbose OneSignal logging to debug issues if needed.
+            OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+
+            // OneSignal Initialization
+            OneSignal.initWithContext(activity);
+            OneSignal.setAppId(Config.ONESIGNAL_APP_ID);
+        }
         return config.read().thenCompose(aVoid -> ads.initialize());
     }
 
@@ -73,11 +87,11 @@ public class App {
         return navigator;
     }
 
-    public SmartAppItems items(RecyclerView view, ItemListener clickListener, int itemLayout) {
+    public SmartAppItems items(View view, ItemListener clickListener, int itemLayout) {
         return new SmartAppItems(view, clickListener, itemLayout);
     }
 
-    public SmartAppItems items(RecyclerView view, ItemListener clickListener, BiFunction<Object, Integer, ItemType<? extends ViewDataBinding>> itemLayout) {
+    public SmartAppItems items(View view, ItemListener clickListener, BiFunction<Object, Integer, ItemType<? extends ViewDataBinding>> itemLayout) {
         return new SmartAppItems(view, clickListener, itemLayout);
     }
 

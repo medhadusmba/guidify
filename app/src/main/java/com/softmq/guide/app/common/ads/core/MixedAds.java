@@ -7,6 +7,7 @@ import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
 import com.softmq.guide.app.common.ads.core.mediumrects.MediumRectAdSource;
 import com.softmq.guide.app.common.ads.core.natives.NativeAdSource;
 import com.softmq.guide.app.common.ads.core.networks.AdNetworks;
+import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -19,18 +20,20 @@ public class MixedAds implements AdNetworks, Ads {
     private final Ads interstitials;
     private final Ads natives;
     private Ads mediumrects;
+    private Ads rewardedAds;
 
-    public MixedAds(Ads banners, Ads interstitials, Ads natives, Ads mediumrects) {
+    public MixedAds(Ads banners, Ads interstitials, Ads natives, Ads mediumrects, Ads rewardedAds) {
         this.banners = banners;
         this.interstitials = interstitials;
         this.natives = natives;
         this.mediumrects = mediumrects;
+        this.rewardedAds = rewardedAds;
     }
 
     @NonNull
     @Override
     public Ads ads() {
-        return new MixedAds(banners, interstitials, natives, mediumrects);
+        return new MixedAds(banners, interstitials, natives, mediumrects, rewardedAds);
     }
 
     @NotNull
@@ -63,5 +66,10 @@ public class MixedAds implements AdNetworks, Ads {
     @Override
     public MediumRectAdSource mediumrects() {
         return mediumrects.mediumrects();
+    }
+
+    @Override
+    public RewardedAdSource rewardedAds() {
+        return rewardedAds.rewardedAds();
     }
 }

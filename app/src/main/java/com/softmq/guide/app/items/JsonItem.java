@@ -10,12 +10,19 @@ public class JsonItem {
     private final String description;
     private final String image;
     private final String type;
+    private final String url;
+    private final JSONObject locker;
 
     public JsonItem(JSONObject item, ItemListener callback) throws JSONException {
         if (item.has("type")) {
             this.type = item.getString("type");
         } else {
-            type = "";
+            if (!item.has("description") || item.getString(Item.DESCRIPTION).isEmpty()) {
+
+                type = Item.TYPE_ERROR;
+            } else {
+                type = Item.TYPE_ARTICLE;
+            }
         }
         if (item.has("title")) {
             this.title = item.getString("title");
@@ -32,10 +39,20 @@ public class JsonItem {
         } else {
             description = "";
         }
+        if (item.has("locker")) {
+            this.locker = item.getJSONObject("locker");
+        } else {
+            this.locker = null;
+        }
+        if (item.has("url")) {
+            this.url = item.getString("url");
+        } else {
+            this.url = "";
+        }
         this.callback = callback;
     }
 
     public Item asItem() {
-        return new Item(title, description, image, callback, type);
+        return new Item(title, description, image, callback, type, locker, url);
     }
 }

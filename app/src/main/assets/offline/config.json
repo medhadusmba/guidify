@@ -1,6 +1,6 @@
 {
   "config": {
-    "version": "3.0.4",
+    "version": "8.0.0",
     "apps": {
       "guidify": {
         "enabled": true
@@ -11,17 +11,11 @@
     },
     "ads": {
       "enabled": true,
-      "mode_ads_banner": "facebook",
-      "mode_ads_interstitial": "admob",
-      "mode_ads_native": "admob",
-      "mode_ads_mediumrect": "facebook",
-      "mode_ads_rewarded": "",
-      "adcolony": {
-        "adcolony_app_id": "appaa814d2551b94cdb81",
-        "adcolony_interstitial_id": "vz8a72e7b691d04847bb",
-        "adcolony_banner_id": "vz50e276396cb0423581",
-        "adcolony_rewarded_id": ""
-      },
+      "mode_ads_banner": "mopub",
+      "mode_ads_interstitial": "mopub",
+      "mode_ads_native": "mopub",
+      "mode_ads_mediumrect": "mopub",
+      "mode_ads_rewarded": "mopub",
       "admob": {
         "admob_banner_id": "ca-app-pub-3940256099942544/6300978111",
         "admob_interstitial_id": [
@@ -31,17 +25,15 @@
         ],
         "admob_native_id": "ca-app-pub-3940256099942544/2247696110",
         "admob_mediumrect_id": "ca-app-pub-3940256099942544/6300978111",
-        "admob_rewarded_id": "",
+        "admob_rewarded_id": "ca-app-pub-3940256099942544/5224354917",
         "admob_unit_id": ""
-      },
-      "appodeal": {
-        "appodeal_app_key": "dfaea284bc7f8f1b7919e2271a495f8afbad91650112bf3a"
       },
       "facebook": {
         "facebook_banner_id": "IMG_16_9_APP_INSTALL#173186393601951_299214384332484",
         "facebook_interstitial_id": "IMG_16_9_APP_INSTALL#173186393601951_288058788781377",
         "facebook_native_id": "VID_HD_9_16_39S_APP_INSTALL#173186393601951_356298065290782",
-        "facebook_mediumrect_id": "IMG_16_9_APP_INSTALL#893870180793867_1789798824534327"
+        "facebook_mediumrect_id": "IMG_16_9_APP_INSTALL#893870180793867_1789798824534327",
+        "facebook_rewarded_id": "VID_HD_9_16_39S_APP_INSTALL#173186393601951_356298065290782"
       },
       "unity": {
         "unity_app_id": "4100687",
@@ -49,7 +41,31 @@
         "unity_interstitial_id": "Interstitial_Android",
         "unity_rewarded_id": ""
       },
-      "ironsource": {
+      "adcolony": {
+        "adcolony_app_id": "appaa814d2551b94cdb81",
+        "adcolony_interstitial_id": "vz8a72e7b691d04847bb",
+        "adcolony_banner_id": "vz50e276396cb0423581",
+        "adcolony_rewarded_id": ""
+      },
+      "huawei": {
+        "huawei_banner_id": "testw6vs28auh3",
+        "huawei_interstitial_id": "estb4znbuh3n2",
+        "huawei_native_id": "testy63txaom86",
+        "huawei_rewarded_id": "testx9dtjwj8hp"
+      },
+      "mopub": {
+        "mopub_banner_id": "b195f8dd8ded45fe847ad89ed1d016da",
+        "mopub_interstitial_id": "24534e1901884e398f1253216226017e",
+        "mopub_native_id": "76a3fefaced247959582d2d2df6f4757",
+        "mopub_rewarded_id": "920b6145fb1546cf8b5cf2ac34638bb7"
+      },
+      "tapdaq": {
+        "tapdaq_app_id": "",
+        "tapdaq_client_key": "",
+        "tapdaq_banner_id": "default",
+        "tapdaq_interstitial_id": "default",
+        "tapdaq_native_id": "default",
+        "tapdaq_rewarded_id": "default"
       }
     },
     "update": {
@@ -71,7 +87,7 @@
       }
     },
     "rating": {
-      "enabled": true
+      "enabled": false
     },
     "popup": {
       "_comment": "link= , appid, url",
@@ -83,13 +99,14 @@
     },
     "activities": {
       "splash": {
-        "duration": 5000
+        "duration": 8000
       },
       "start": {
         "enabled": false,
+        "count": 2,
         "loader": {
-          "enabled": true,
-          "duration": 4000
+          "enabled": false,
+          "duration": 6000
         }
       },
       "main": {
@@ -97,8 +114,10 @@
         "more": ""
       },
       "list": {
+        "_comment": "type = default, back_next",
+        "type": "back_next",
         "item": {
-          "_comment": "type = image, text, card",
+          "_comment": "type = image, text, card, thumb",
           "type": "image",
           "loader": {
             "enabled": true,
@@ -108,7 +127,8 @@
       },
       "item": {
         "type": "text, webview, richtext",
-        "native_ad": false,
+        "native_ad": true,
+        "mediumrect_ad": true,
         "banner_ad": true,
         "interstitial_ad": false
       }
@@ -119,13 +139,14 @@
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
         "title": "Test title 0",
-        "description": "Test description 0"
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
       },
       {
+        "type": "webview",
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
-        "title": "Test title 1",
-        "description": "Test description 1",
-        "rewarded": true
+        "title": "Test webview 1",
+        "description": "Test description webview 1",
+        "url": "http://www.pita.it/apiFootballScoresV3/index.php?idLeague=live"
       },
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
@@ -133,18 +154,15 @@
         "description": "Test description 2"
       },
       {
-        "type": "native_ad"
-      },
-      {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
         "title": "Test title 3",
         "description": "Test description 3"
       },
       {
+        "type": "native_ad",
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
-        "state": "free",
-        "title": "Test title 4",
-        "description": "Test description 4"
+        "title": "Test title 3",
+        "description": "Test description 3"
       },
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
@@ -152,12 +170,9 @@
         "description": "Test description 5"
       },
       {
-        "type": "native_ad"
-      },
-      {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
         "title": "Test title 6",
-        "description": "Test description 6"
+        "description": ""
       },
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
@@ -169,8 +184,37 @@
       },
       {
         "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
-        "title": "Test title 8",
-        "description": "Test description 8"
+        "title": "Test title 9",
+        "description": "Test description 9"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 10",
+        "description": "Test description 10"
+      },
+      {
+        "type": "native_ad"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 12",
+        "description": "Test description 12"
+      },
+      {
+        "image": "https://raw.githubusercontent.com/medprogrammer/configs/main/Webp.net-compress-image.jpg",
+        "title": "Test title 13",
+        "description": "Test description 13"
+      },
+      {
+        "type": "webview",
+        "image": "https://www.yacineapp.tv/",
+        "title": "Test webview 14",
+        "description": "Test description webview 1",
+        "url": "https://koralivenew.com/matchs",
+        "locker": {
+          "_comment": "type=rewarded_ad",
+          "type": "rewarded_ad"
+        }
       }
     ]
   }

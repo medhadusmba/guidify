@@ -6,7 +6,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.ui.Showable;
 
 public class ErrorDialog implements Showable {

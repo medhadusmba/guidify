@@ -6,7 +6,7 @@ import android.util.Log;
 
 import androidx.multidex.BuildConfig;
 
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 
 public class AppSharing {
     private final Activity activity;

@@ -2,8 +2,11 @@ package com.softmq.guide.app.ads;
 
 import android.content.Context;
 
+import com.softmq.guide.app.common.ads.core.Ad;
 import com.softmq.guide.app.common.ads.core.natives.NativeAd;
 import com.softmq.guide.app.common.ads.core.natives.NativeAdSource;
+
+import java9.util.concurrent.CompletableFuture;
 
 public class ScrollableNativeAds implements NativeAdSource {
     private final NativeAdSource nativeAds;
@@ -18,4 +21,5 @@ public class ScrollableNativeAds implements NativeAdSource {
     public NativeAd nativeAd() {
         return new ScrollableNativeAd(nativeAds.nativeAd(), context);
     }
+
 }

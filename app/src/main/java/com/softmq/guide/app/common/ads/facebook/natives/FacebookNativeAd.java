@@ -1,8 +1,10 @@
 package com.softmq.guide.app.common.ads.facebook.natives;
 
 import android.content.Context;
+import android.util.LayoutDirection;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,7 +14,7 @@ import androidx.annotation.NonNull;
 import com.facebook.ads.AdOptionsView;
 import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAdLayout;
-import com.softmq.guide.R;
+import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.ads.core.natives.NativeAd;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
 
@@ -34,6 +36,8 @@ public class FacebookNativeAd implements NativeAd {
     private View asView() {
         nativeAd.unregisterView();
         NativeAdLayout nativeAdLayout = new NativeAdLayout(context);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);;
+        nativeAdLayout.setLayoutParams(params);
         LayoutInflater inflater = LayoutInflater.from(context);
         LinearLayout nativeAdView = (LinearLayout) inflater.inflate(R.layout.ads_native_facebook, nativeAdLayout, false);
         nativeAdLayout.addView(nativeAdView);

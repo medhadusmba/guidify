@@ -5,11 +5,14 @@ buildscript {
         jcenter()
         mavenCentral()
         gradlePluginPortal()
+        maven { url 'https://developer.huawei.com/repo/' }
+
+
 
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.3"
-        //classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.10, 0.99.99]'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.10, 0.99.99]'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -22,7 +25,25 @@ allprojects {
         maven { url "https://artifactory.appodeal.com/appodeal" }
         jcenter()
         mavenCentral()
+        maven { url "https://android-sdk.tapdaq.com" }
         maven { url "https://jitpack.io" }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url 'https://android-sdk.is.com/' }
+        maven {
+            name "Tapjoy's maven repo"
+            url "https://sdk.tapjoy.com/"
+        }
+        maven { url  "https://adcolony.bintray.com/AdColony" }
+        maven {
+            name = "Huxter"
+            url = uri("https://maven.pkg.github.com/medhadusmba/Huxter")
+            credentials {
+                username = System.getenv('GPR_USER') ?: project.properties['GPR_USER']
+                password = System.getenv('GPR_TOKEN') ?: project.properties['GPR_TOKEN']
+            }
+        }
+
+
     }
 }
 

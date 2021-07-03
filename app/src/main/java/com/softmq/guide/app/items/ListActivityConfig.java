@@ -2,18 +2,24 @@ package com.softmq.guide.app.items;
 
 
 public class ListActivityConfig {
+    private String listType;
     private final ItemConfig item;
 
     public ListActivityConfig() {
         item = new ItemConfig();
+        listType= "default";
     }
 
-    public ListActivityConfig(ItemConfig item) {
+    public ListActivityConfig(String listType, ItemConfig item) {
+        this.listType = listType;
         this.item = item;
     }
 
     public ItemConfig item() {
         return item;
+    }
+    public String type() {
+        return listType;
     }
 
     public static class ItemConfig {
