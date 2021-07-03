@@ -1,26 +1,39 @@
-package com.softmq.guide.app.common.ads.facebook.interstitials;
+package com.softmq.guide.app.common.ads.facebook.rewarded;
 
 
+import android.os.Handler;
+
+import com.facebook.ads.Ad;
+import com.facebook.ads.RewardedVideoAd;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAd;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
+import com.softmq.guide.app.common.ads.core.rewarded.RewardedAd;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class FacebookInterstitialAd implements InterstitialAd {
+public class FacebookRewardedAd implements RewardedAd {
 
-    private final com.facebook.ads.InterstitialAd origin;
-    private final CompletableFuture<Void> onInterstitialAdDismissed;
 
-    public FacebookInterstitialAd(com.facebook.ads.InterstitialAd origin, CompletableFuture<Void> onInterstitialAdDismissed) {
+    private final RewardedVideoAd origin;
+    private CompletableFuture<Void> onRewarded;
+
+    public FacebookRewardedAd(RewardedVideoAd origin, CompletableFuture<Void> onRewarded) {
         this.origin = origin;
-        this.onInterstitialAdDismissed = onInterstitialAdDismissed;
+        this.onRewarded = onRewarded;
     }
+
 
     @Override
     public CompletableFuture<Void> show(AdPlacement placement) {
         CompletableFuture<Void> result = new CompletableFuture<>();
-        onInterstitialAdDismissed.thenRun(() -> result.complete(null));
-        origin.show();
+        onRewarded.thenRun(() -> result.complete(null));
+        new Handler().postDelayed(() -> {
+            // Check if ad is already expired or invalidated, and do not show ad if that is the case. You will not get paid to show an invalidated ad.
+            if (origin.isAdInvalidated()) {
+                result.completeExceptionally(new Exception("facebook rewarded is already expired or invalidated"));
+            }
+            origin.show();
+        }, 1000); // Show
         return result;
     }
 

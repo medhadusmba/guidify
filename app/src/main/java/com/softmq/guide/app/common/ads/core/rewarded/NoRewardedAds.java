@@ -1,8 +1,8 @@
-package com.softmq.guide.app.common.ads.core.interstitials;
+package com.softmq.guide.app.common.ads.core.rewarded;
 
-public class NoInterstitialAds implements InterstitialAdSource {
+public class NoRewardedAds implements RewardedAdSource {
     @Override
-    public InterstitialAd interstitialAd() {
-        return new NoInterstitialAd();
+    public RewardedAd rewardedAd() {
+        return new NoRewardedAd();
     }
 }

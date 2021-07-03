@@ -1,25 +1,19 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.admob;
 
 
-import android.content.Context;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.huawei.hms.ads.nativead.MediaView;
-import com.huawei.hms.ads.nativead.NativeView;
-import com.softmq.guide.app.R;
 import com.softmq.guide.app.common.ads.core.natives.NativeAd;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class MopubNativeAd implements NativeAd {
+public class AdmobNativeAd implements NativeAd {
 
 
     private View adView;
 
-    public MopubNativeAd(View adView) {
+    public AdmobNativeAd(View adView) {
 
         this.adView = adView;
     }

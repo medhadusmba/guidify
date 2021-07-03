@@ -1,4 +1,4 @@
 package com.softmq.guide.app.common.ads.core;
 
-public interface InlineAdSource {
+public interface InlineAdSource extends AdSource{
 }

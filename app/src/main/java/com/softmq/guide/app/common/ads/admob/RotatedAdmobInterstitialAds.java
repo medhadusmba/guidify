@@ -1,4 +1,4 @@
-package com.softmq.guide.app.common.ads.admob.interstitials;
+package com.softmq.guide.app.common.ads.admob;
 
 import android.app.Activity;
 import android.util.Log;

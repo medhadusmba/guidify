@@ -1,10 +1,7 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.tapdaq;
 
 import android.app.Activity;
 
-import com.huawei.hms.ads.AdParam;
-import com.huawei.hms.ads.reward.RewardAd;
-import com.huawei.hms.ads.reward.RewardAdLoadListener;
 import com.softmq.guide.app.common.ads.core.rewarded.AsyncRewardedAd;
 import com.softmq.guide.app.common.ads.core.rewarded.RewardedAd;
 import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
@@ -12,11 +9,12 @@ import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class MopubRewardedAds implements RewardedAdSource {
+public class TapdaqRewardedAds implements RewardedAdSource {
     private final Activity activity;
     private final String rewardedAdId;
+    private static Huxter.StandaloneAd origin ;
 
-    public MopubRewardedAds(Activity activity, String rewardedAdId) {
+    public TapdaqRewardedAds(Activity activity, String rewardedAdId) {
         this.activity = activity;
         this.rewardedAdId = rewardedAdId;
     }
@@ -25,9 +23,7 @@ public class MopubRewardedAds implements RewardedAdSource {
     public RewardedAd rewardedAd() {
         CompletableFuture<RewardedAd> result = new CompletableFuture<>();
         CompletableFuture<String> onDismiss = new CompletableFuture<>();
-        Huxter.StandaloneAd origin = null;
-        Huxter.StandaloneAd finalOrigin = origin;
-        origin=new Huxter.StandaloneAd(activity, rewardedAdId, new Huxter.StandaloneAd.Listener() {
+        origin=new Huxter.StandaloneAd(activity, rewardedAdId, Huxter.AdFormat.Rewarded,  new Huxter.StandaloneAd.Listener() {
             @Override
             public void onDismiss(String network) {
                 onDismiss.complete(network);
@@ -41,7 +37,7 @@ public class MopubRewardedAds implements RewardedAdSource {
 
             @Override
             public void onReady(String network) {
-                result.complete(new MopubRewardedAd(finalOrigin, activity, onDismiss));
+                result.complete(new TapdaqRewardedAd(origin, activity, onDismiss));
             }
         });
         origin.refreshAd(false);

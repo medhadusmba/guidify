@@ -1,33 +1,30 @@
-package com.softmq.guide.app.common.ads.huawei;
+package com.softmq.guide.app.common.ads.mopub;
 
 
 import android.app.Activity;
 
-import com.huawei.hms.ads.AdListener;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAd;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
+import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class HuaweiInterstitialAd implements InterstitialAd {
-    private com.huawei.hms.ads.InterstitialAd origin;
+public class MopubInterstitialAd implements InterstitialAd {
     private Activity activity;
+    private final CompletableFuture<String> onDismiss;
+    private Huxter.StandaloneAd origin;
 
-    public HuaweiInterstitialAd(com.huawei.hms.ads.InterstitialAd origin, Activity activity) {
+    public MopubInterstitialAd(Huxter.StandaloneAd origin, Activity activity, CompletableFuture<String> onDismiss) {
         this.origin = origin;
         this.activity = activity;
+        this.onDismiss = onDismiss;
     }
 
     @Override
     public CompletableFuture<Void> show(AdPlacement placement) {
         CompletableFuture<Void> result = new CompletableFuture<>();
-        origin.setAdListener(new AdListener(){
-            @Override
-            public void onAdClosed() {
-                result.complete(null);
-            }
-        });
-        origin.show(activity);
+        onDismiss.whenComplete((s, throwable) -> result.complete(null));
+        origin.show();
         return result;
     }
 

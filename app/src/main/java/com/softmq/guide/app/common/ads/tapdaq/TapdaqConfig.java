@@ -1,19 +1,23 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.tapdaq;
 
-public class MopubConfig {
+public class TapdaqConfig {
+    private String clientKey;
     private final String bannerAdId;
     private final String interstitialAdId;
     private final String nativeAdId;
     private final String rewardedAdId;
+    private String appId;
 
-    public MopubConfig(String bannerAdId, String interstitialAdId, String nativeAdId, String rewardedAdId) {
+    public TapdaqConfig(String appId, String clientKey, String bannerAdId, String interstitialAdId, String nativeAdId, String rewardedAdId) {
+        this.clientKey = clientKey;
         this.bannerAdId = bannerAdId;
         this.interstitialAdId = interstitialAdId;
         this.nativeAdId = nativeAdId;
         this.rewardedAdId = rewardedAdId;
+        this.appId = appId;
     }
-    public MopubConfig() {
-        this("","","","");
+    public TapdaqConfig() {
+        this("","","","", "","");
     }
     public String getBannerAdId() {
         return bannerAdId;
@@ -29,5 +33,13 @@ public class MopubConfig {
 
     public String getRewardedAdId() {
         return rewardedAdId;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public String getClientKey() {
+        return clientKey;
     }
 }

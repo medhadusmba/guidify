@@ -11,14 +11,14 @@ import com.softmq.guide.app.common.ads.core.natives.NoNativeAds;
 import com.softmq.guide.app.common.ads.core.rewarded.NoRewardedAds;
 import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
 
-public class DefaultAds implements Ads {
+public class BaseAds implements Ads {
     private final BannerAdSource banners;
     private final InterstitialAdSource interstitials;
     private final NativeAdSource natives;
     private final MediumRectAdSource mediumrects;
     private RewardedAdSource rewardedAds;
 
-    public DefaultAds(BannerAdSource banners, InterstitialAdSource interstitials, NativeAdSource natives, MediumRectAdSource mediumrects, RewardedAdSource rewardedAds) {
+    public BaseAds(BannerAdSource banners, InterstitialAdSource interstitials, NativeAdSource natives, MediumRectAdSource mediumrects, RewardedAdSource rewardedAds) {
         this.banners = banners;
         this.interstitials = interstitials;
         this.natives = natives;
@@ -26,36 +26,36 @@ public class DefaultAds implements Ads {
         this.rewardedAds = rewardedAds;
 
     }
-    public DefaultAds(BannerAdSource banners, InterstitialAdSource interstitials, NativeAdSource natives, MediumRectAdSource mediumrects) {
+    public BaseAds(BannerAdSource banners, InterstitialAdSource interstitials, NativeAdSource natives, MediumRectAdSource mediumrects) {
         this(banners, interstitials, natives, new NoMediumRectAds(), new NoRewardedAds());
 
     }
 
-    public DefaultAds(BannerAdSource banners, InterstitialAdSource interstitials, NativeAdSource natives) {
+    public BaseAds(BannerAdSource banners, InterstitialAdSource interstitials, NativeAdSource natives) {
         this(banners, interstitials, natives, new NoMediumRectAds());
     }
 
-    public DefaultAds(BannerAdSource banners, InterstitialAdSource interstitials) {
+    public BaseAds(BannerAdSource banners, InterstitialAdSource interstitials) {
 
         this(banners, interstitials, new NoNativeAds());
     }
 
-    public DefaultAds(BannerAdSource banners) {
+    public BaseAds(BannerAdSource banners) {
 
         this(banners, new NoInterstitialAds(), new NoNativeAds());
     }
 
-    public DefaultAds(InterstitialAdSource interstitials) {
+    public BaseAds(InterstitialAdSource interstitials) {
 
         this(new NoBannerAds(), new NoInterstitialAds(), new NoNativeAds());
     }
 
-    public DefaultAds(NativeAdSource natives) {
+    public BaseAds(NativeAdSource natives) {
 
         this(new NoBannerAds(), new NoInterstitialAds(), natives);
     }
 
-    public DefaultAds(DefaultAds ads) {
+    public BaseAds(BaseAds ads) {
         this(ads.banners, ads.interstitials(), ads.natives());
     }
 

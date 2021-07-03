@@ -1,4 +1,4 @@
-package com.softmq.guide.app.common.ads.huawei;
+package com.softmq.guide.app.common.ads.mopub;
 
 import android.app.Activity;
 
@@ -8,14 +8,16 @@ import com.huawei.hms.ads.reward.RewardAdLoadListener;
 import com.softmq.guide.app.common.ads.core.rewarded.AsyncRewardedAd;
 import com.softmq.guide.app.common.ads.core.rewarded.RewardedAd;
 import com.softmq.guide.app.common.ads.core.rewarded.RewardedAdSource;
+import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class HuaweiRewardedAds implements RewardedAdSource {
+public class MopubRewardedAds implements RewardedAdSource {
     private final Activity activity;
     private final String rewardedAdId;
+    private static Huxter.StandaloneAd origin ;
 
-    public HuaweiRewardedAds(Activity activity, String rewardedAdId) {
+    public MopubRewardedAds(Activity activity, String rewardedAdId) {
         this.activity = activity;
         this.rewardedAdId = rewardedAdId;
     }
@@ -23,19 +25,25 @@ public class HuaweiRewardedAds implements RewardedAdSource {
     @Override
     public RewardedAd rewardedAd() {
         CompletableFuture<RewardedAd> result = new CompletableFuture<>();
-
-        RewardAd origin = new RewardAd(activity.getApplicationContext(), rewardedAdId);
-        origin.loadAd(new AdParam.Builder().build(), new RewardAdLoadListener(){
+        CompletableFuture<String> onDismiss = new CompletableFuture<>();
+        origin=new Huxter.StandaloneAd(activity, rewardedAdId, Huxter.AdFormat.Rewarded,  new Huxter.StandaloneAd.Listener() {
             @Override
-            public void onRewardAdFailedToLoad(int i) {
-                result.completeExceptionally(new Exception("Huawei: Rewarded ad failed to load with error code: "+i));
+            public void onDismiss(String network) {
+                onDismiss.complete(network);
             }
 
             @Override
-            public void onRewardedLoaded() {
-                result.complete(new HuaweiRewardedAd(activity, origin));
+            public void onFail(Huxter.AdError error) {
+                result.completeExceptionally(new Exception(error.toString()));
+                onDismiss.completeExceptionally(new Exception(error.toString()));
+            }
+
+            @Override
+            public void onReady(String network) {
+                result.complete(new MopubRewardedAd(origin, activity, onDismiss));
             }
         });
+        origin.refreshAd(false);
         return new AsyncRewardedAd(result);
     }
 }

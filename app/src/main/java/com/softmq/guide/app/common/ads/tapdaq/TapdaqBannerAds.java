@@ -1,14 +1,8 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.tapdaq;
 
 import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
 import android.view.View;
 
-import com.huawei.hms.ads.AdListener;
-import com.huawei.hms.ads.AdParam;
-import com.huawei.hms.ads.BannerAdSize;
-import com.huawei.hms.ads.banner.BannerView;
 import com.softmq.guide.app.common.ads.core.banners.AsyncBannerAd;
 import com.softmq.guide.app.common.ads.core.banners.BannerAd;
 import com.softmq.guide.app.common.ads.core.banners.BannerAdSource;
@@ -16,11 +10,11 @@ import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class MopubBannerAds implements BannerAdSource {
+public class TapdaqBannerAds implements BannerAdSource {
     private final Activity activity;
     private final String bannerAdId;
 
-    public MopubBannerAds(Activity activity, String bannerAdId) {
+    public TapdaqBannerAds(Activity activity, String bannerAdId) {
         this.activity = activity;
         this.bannerAdId = bannerAdId;
     }
@@ -32,7 +26,7 @@ public class MopubBannerAds implements BannerAdSource {
         new Huxter.InlineAd(activity, bannerAdId, new Huxter.InlineAd.Listener() {
             @Override
             public void onReady(String network, View adView) {
-                result.complete(new MopubBannerAd(adView));
+                result.complete(new TapdaqBannerAd(adView));
             }
 
             @Override

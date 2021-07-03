@@ -1,6 +1,8 @@
-package com.softmq.guide.app.common.ads.core.interstitials;
+package com.softmq.guide.app.common.ads.core.rewarded;
 
-public interface InterstitialAdSource {
-    InterstitialAd interstitialAd();
+import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAd;
+
+public interface RewardedAdSource {
+    RewardedAd rewardedAd();
 
 }

@@ -1,4 +1,4 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.tapdaq;
 
 
 import android.app.Activity;
@@ -9,12 +9,12 @@ import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class MopubInterstitialAd implements InterstitialAd {
+public class TapdaqInterstitialAd implements InterstitialAd {
     private Activity activity;
     private final CompletableFuture<String> onDismiss;
     private Huxter.StandaloneAd origin;
 
-    public MopubInterstitialAd(Huxter.StandaloneAd origin, Activity activity, CompletableFuture<String> onDismiss) {
+    public TapdaqInterstitialAd(Huxter.StandaloneAd origin, Activity activity, CompletableFuture<String> onDismiss) {
         this.origin = origin;
         this.activity = activity;
         this.onDismiss = onDismiss;

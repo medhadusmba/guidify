@@ -2,15 +2,15 @@ package com.softmq.guide.app.common.ads.admob;
 
 import android.view.View;
 
-import com.softmq.guide.app.common.ads.core.banners.BannerAd;
+import com.softmq.guide.app.common.ads.core.mediumrects.MediumRectAd;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class AdmobBannerAd implements BannerAd {
+public class AdmobMediumRectAd implements MediumRectAd {
     private final View origin;
 
-    public AdmobBannerAd(View origin) {
+    public AdmobMediumRectAd(View origin) {
         this.origin = origin;
     }
 

@@ -1,22 +1,24 @@
-package com.softmq.guide.app.common.ads.huawei;
+package com.softmq.guide.app.common.ads.mopub;
 
 import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
 
 import com.huawei.hms.ads.AdListener;
 import com.huawei.hms.ads.AdParam;
+import com.softmq.guide.app.common.ads.core.StandaloneAd;
 import com.softmq.guide.app.common.ads.core.interstitials.AsyncInterstitialAd;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAd;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
+import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class HuaweiInterstitialAds implements InterstitialAdSource {
+public class MopubInterstitialAds implements InterstitialAdSource {
     private final Activity activity;
     private final String interstitialAdId;
+    private static Huxter.StandaloneAd origin ;
 
-    public HuaweiInterstitialAds(Activity activity, String interstitialAdId) {
+    public MopubInterstitialAds(Activity activity, String interstitialAdId) {
         this.activity = activity;
         this.interstitialAdId = interstitialAdId;
     }
@@ -24,24 +26,25 @@ public class HuaweiInterstitialAds implements InterstitialAdSource {
     @Override
     public InterstitialAd interstitialAd() {
         CompletableFuture<InterstitialAd> result = new CompletableFuture<>();
-        com.huawei.hms.ads.InterstitialAd origin = new com.huawei.hms.ads.InterstitialAd(activity);
-        // "testb4znbuh3n2" is a dedicated test ad unit ID. Before releasing your app, replace the test ad unit ID with the formal one.
-        origin.setAdId(interstitialAdId);
-        // Load an interstitial ad.
-        AdParam adParam = new AdParam.Builder().build();
-        origin.setAdListener(new AdListener(){
+        CompletableFuture<String> onDismiss = new CompletableFuture<>();
+        origin=new Huxter.StandaloneAd(activity, interstitialAdId, new Huxter.StandaloneAd.Listener() {
             @Override
-            public void onAdLoaded() {
-                result.complete(new HuaweiInterstitialAd(origin, activity));
+            public void onDismiss(String network) {
+                onDismiss.complete(network);
             }
 
             @Override
-            public void onAdFailed(int i) {
-                result.completeExceptionally(new Exception("huawei: interstitial ad failed to load with error code:" + i));
-                Log.e("todo", "huawei: interstitial not loaded with error code: " + i);
+            public void onFail(Huxter.AdError error) {
+                result.completeExceptionally(new Exception(error.toString()));
+                onDismiss.completeExceptionally(new Exception(error.toString()));
+            }
+
+            @Override
+            public void onReady(String network) {
+                result.complete(new MopubInterstitialAd(origin, activity, onDismiss));
             }
         });
-        origin.loadAd(adParam);
+        origin.refreshAd(false);
         return new AsyncInterstitialAd(result);
     }
 }

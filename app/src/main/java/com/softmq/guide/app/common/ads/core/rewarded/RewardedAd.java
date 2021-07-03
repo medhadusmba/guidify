@@ -1,4 +1,7 @@
-package com.softmq.guide.app.common.ads.core;
+package com.softmq.guide.app.common.ads.core.rewarded;
 
-public class RewardedAd {
+import com.softmq.guide.app.common.ads.core.StandaloneAd;
+
+public interface RewardedAd extends StandaloneAd {
+
 }

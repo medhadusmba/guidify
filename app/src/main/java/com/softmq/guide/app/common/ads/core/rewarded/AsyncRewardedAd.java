@@ -5,9 +5,9 @@ import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAd;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class AsyncInterstitialAd extends AsyncStandaloneAd implements InterstitialAd {
+public class AsyncRewardedAd extends AsyncStandaloneAd implements RewardedAd {
 
-    public AsyncInterstitialAd(CompletableFuture<InterstitialAd> result) {
-        super(result.thenApply(interstitialAd -> interstitialAd));
+    public AsyncRewardedAd(CompletableFuture<RewardedAd> result) {
+        super(result.thenApply(rewardedAd -> rewardedAd));
     }
 }

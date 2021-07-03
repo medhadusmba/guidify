@@ -1,23 +1,20 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.tapdaq;
 
 import android.app.Activity;
 
-import com.huawei.hms.ads.reward.Reward;
-import com.huawei.hms.ads.reward.RewardAd;
-import com.huawei.hms.ads.reward.RewardAdStatusListener;
 import com.softmq.guide.app.common.ads.core.placements.AdPlacement;
 import com.softmq.guide.app.common.ads.core.rewarded.RewardedAd;
 import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class MopubRewardedAd implements RewardedAd {
+public class TapdaqRewardedAd implements RewardedAd {
 
     private final Huxter.StandaloneAd origin;
     private final Activity activity;
     private final CompletableFuture<String> onDismiss;
 
-    public MopubRewardedAd(Huxter.StandaloneAd origin, Activity activity, CompletableFuture<String> onDismiss) {
+    public TapdaqRewardedAd(Huxter.StandaloneAd origin, Activity activity, CompletableFuture<String> onDismiss) {
         this.origin = origin;
         this.activity = activity;
         this.onDismiss = onDismiss;

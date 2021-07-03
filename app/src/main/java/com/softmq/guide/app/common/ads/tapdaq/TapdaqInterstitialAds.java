@@ -1,11 +1,7 @@
-package com.softmq.guide.app.common.ads.mopub;
+package com.softmq.guide.app.common.ads.tapdaq;
 
 import android.app.Activity;
-import android.util.Log;
 
-import com.huawei.hms.ads.AdListener;
-import com.huawei.hms.ads.AdParam;
-import com.softmq.guide.app.common.ads.core.StandaloneAd;
 import com.softmq.guide.app.common.ads.core.interstitials.AsyncInterstitialAd;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAd;
 import com.softmq.guide.app.common.ads.core.interstitials.InterstitialAdSource;
@@ -13,11 +9,12 @@ import com.softmq.huxter.core.Huxter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class MopubInterstitialAds implements InterstitialAdSource {
+public class TapdaqInterstitialAds implements InterstitialAdSource {
     private final Activity activity;
     private final String interstitialAdId;
+    private static Huxter.StandaloneAd origin ;
 
-    public MopubInterstitialAds(Activity activity, String interstitialAdId) {
+    public TapdaqInterstitialAds(Activity activity, String interstitialAdId) {
         this.activity = activity;
         this.interstitialAdId = interstitialAdId;
     }
@@ -26,8 +23,6 @@ public class MopubInterstitialAds implements InterstitialAdSource {
     public InterstitialAd interstitialAd() {
         CompletableFuture<InterstitialAd> result = new CompletableFuture<>();
         CompletableFuture<String> onDismiss = new CompletableFuture<>();
-        Huxter.StandaloneAd origin = null;
-        Huxter.StandaloneAd finalOrigin = origin;
         origin=new Huxter.StandaloneAd(activity, interstitialAdId, new Huxter.StandaloneAd.Listener() {
             @Override
             public void onDismiss(String network) {
@@ -42,7 +37,7 @@ public class MopubInterstitialAds implements InterstitialAdSource {
 
             @Override
             public void onReady(String network) {
-                result.complete(new MopubInterstitialAd(finalOrigin, activity, onDismiss));
+                result.complete(new TapdaqInterstitialAd(origin, activity, onDismiss));
             }
         });
         origin.refreshAd(false);

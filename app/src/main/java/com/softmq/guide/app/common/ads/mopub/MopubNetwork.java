@@ -1,4 +1,4 @@
-package com.softmq.guide.app.common.ads.huawei;
+package com.softmq.guide.app.common.ads.mopub;
 
 import android.app.Activity;
 
@@ -6,27 +6,43 @@ import com.huawei.hms.ads.HwAds;
 import com.softmq.guide.app.common.ads.core.AdsConfig;
 import com.softmq.guide.app.common.ads.core.BaseAds;
 import com.softmq.guide.app.common.ads.core.mediumrects.NoMediumRectAds;
+import com.softmq.guide.app.common.ads.core.natives.NativeAd;
+import com.softmq.huxter.core.Huxter;
+import com.softmq.huxter.mopub.MopubAdapter;
 
 import java9.util.concurrent.CompletableFuture;
 
-public class HuaweiNetwork extends BaseAds {
+public class MopubNetwork extends BaseAds {
     private final Activity activity;
     @org.jetbrains.annotations.NotNull
-    private static Boolean initialized=false;
+    private static Boolean initialized = false;
 
-    public HuaweiNetwork(Activity activity, AdsConfig config) {
-        super(new HuaweiBannerAds(activity.getApplicationContext(), config.huawei().getBannerAdId()),
-                new HuaweiInterstitialAds(activity, config.huawei().getInterstitialAdId()),
-                new HuaweiNativeAds(activity.getApplicationContext(), config.huawei().getNativeAdId()),new NoMediumRectAds(),
-                new HuaweiRewardedAds(activity, config.huawei().getRewardedAdId()));
+    public MopubNetwork(Activity activity, AdsConfig config) {
+        super(new MopubBannerAds(activity, config.mopub().getBannerAdId()),
+                new MopubInterstitialAds(activity, config.mopub().getInterstitialAdId()),
+                new MopubNativeAds(activity, config.mopub().getNativeAdId()), new NoMediumRectAds(),
+                new MopubRewardedAds(activity, config.mopub().getRewardedAdId()));
         this.activity = activity;
     }
 
     @Override
     public CompletableFuture<Void> initialize() {
-        HwAds.init(activity.getApplicationContext());
-        initialized=true;
-        return CompletableFuture.completedFuture(null);
+        CompletableFuture<Void> result = new CompletableFuture<>();
+        Huxter.registerAdapter(new MopubAdapter());
+        Huxter.getInstance().initialize(new Huxter.Config.Builder(activity, "").build(), new Huxter.InitializationListener() {
+            @Override
+            public void onComplete() {
+                result.complete(null);
+            }
+
+            @Override
+            public void onFail(Huxter.InitializationError error) {
+                result.completeExceptionally(new Exception("mopub init error"));
+
+            }
+        });
+        initialized = true;
+        return result;
     }
 
     @Override
