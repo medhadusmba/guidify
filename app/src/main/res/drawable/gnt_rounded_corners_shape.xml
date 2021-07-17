@@ -3,8 +3,8 @@
     <solid android:color="#ffffffff" />
 
     <gradient
-        android:endColor="@color/color_primary"
-        android:startColor="@color/color_primary" />
+        android:endColor="@color/primary"
+        android:startColor="@color/primary" />
 
     <padding
         android:bottom="1dp"

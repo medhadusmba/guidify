@@ -100,7 +100,7 @@
                     android:layout_height="50dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/color_primary"
+                    android:backgroundTint="@color/primary"
                     android:gravity="center"
                     android:textColor="#ffff"
                     android:textSize="12sp" />

@@ -31,7 +31,7 @@
         android:maxWidth="200dp"
         android:maxHeight="200dp"
         android:visibility="gone"
-        app:SpinKit_Color="@color/color_primary" />
+        app:SpinKit_Color="@color/primary" />
 
     <LinearLayout
         android:id="@+id/dialog_exit_confirm"
@@ -62,7 +62,7 @@
             android:paddingLeft="@dimen/spacing_mlarge"
             android:paddingRight="@dimen/spacing_mlarge"
             android:text="NO"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/primary" />
 
     </LinearLayout>
 

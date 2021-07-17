@@ -27,7 +27,7 @@
             android:layout_gravity="center|bottom"
             android:layout_marginBottom="15dp"
             android:indeterminate="true"
-            android:indeterminateTint="@color/color_primary"
+            android:indeterminateTint="@color/primary"
             android:indeterminateTintMode="src_atop" />
 
         <include
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:background="@color/color_primary"
+            android:background="@color/primary"
             android:visibility="gone"
             app:text='@{"Start"}' />
 

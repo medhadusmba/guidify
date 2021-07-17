@@ -23,7 +23,7 @@
             android:layout_marginVertical="@dimen/spacing_middle"
             android:gravity="center_horizontal"
             android:textAlignment="center"
-            android:textColor="@color/color_primary"
+            android:textColor="@color/primary"
             android:textSize="27sp"
             android:textStyle="bold"
             android:visibility="gone" />

@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/color_primary"
+            android:background="@color/primary"
             android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
             android:text="EXIT" />
     </LinearLayout>
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:layout_marginBottom="@dimen/spacing_small"
-            android:background="@color/color_primary"
+            android:background="@color/primary"
             android:padding="@dimen/spacing_large"
             android:text="THANK YOU"
             android:textAlignment="center"

@@ -48,14 +48,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="headline"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/primary" />
 
                 <TextView
                     android:id="@+id/ad_advertiser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="advertiser"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/primary" />
 
                 <RatingBar
                     android:id="@+id/ad_rating"
@@ -79,7 +79,7 @@
             android:layout_height="match_parent"
             android:padding="10dp"
             android:text="body of ad"
-            android:textColor="@color/color_primary" />
+            android:textColor="@color/primary" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="price"
-                android:textColor="@color/color_primary"
+                android:textColor="@color/primary"
                 android:visibility="gone" />
 
             <TextView
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="store"
-                android:textColor="@color/color_primary" />
+                android:textColor="@color/primary" />
 
             <Button
                 android:id="@+id/ad_call_to_action"

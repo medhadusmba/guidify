@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@color/color_primary"
+        android:background="@color/primary"
         android:onClick="@{item::click}"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
@@ -33,7 +33,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/color_primary"
+                android:background="@color/primary"
                 android:scaleType="fitXY"
                 app:imageUrl="@{item.image}" />
 <LinearLayout

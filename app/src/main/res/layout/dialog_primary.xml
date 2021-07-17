@@ -21,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/color_primary"
+                android:background="@color/primary"
                 android:gravity="center"
                 android:minHeight="120dp"
                 android:orientation="vertical"
@@ -92,7 +92,7 @@
                     android:paddingLeft="@dimen/spacing_mlarge"
                     android:paddingRight="@dimen/spacing_mlarge"
                     android:text="NO"
-                    android:textColor="@color/color_primary" />
+                    android:textColor="@color/primary" />
 
             </LinearLayout>
 

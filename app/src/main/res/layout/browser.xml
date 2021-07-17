@@ -40,14 +40,14 @@
             android:layout_gravity="center"
             android:maxWidth="200dp"
             android:maxHeight="200dp"
-            app:SpinKit_Color="@color/color_primary"
+            app:SpinKit_Color="@color/primary"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Loading Data..."
-            android:textColor="@color/color_primary"
+            android:textColor="@color/primary"
             android:textSize="20sp"
             android:textStyle="bold" />
 

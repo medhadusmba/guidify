@@ -38,7 +38,7 @@
                 android:indeterminate="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:indeterminateTint="@color/color_primary"
+                android:indeterminateTint="@color/primary"
                 android:indeterminateTintMode="src_atop" />
 
             <Button
