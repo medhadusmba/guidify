@@ -5,12 +5,14 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.ViewDataBinding;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.andrognito.flashbar.Flashbar;
 import com.github.nitrico.lastadapter.Holder;
 import com.github.nitrico.lastadapter.ItemType;
 
@@ -40,11 +43,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
+
 public class ListActivity extends AppCompatActivity {
 
     public static final String REQUEST_CODE = "requestCode";
     public static final String RESULT_CODE = "resultCode";
     public static final String DATA = "data";
+    private static final int RC_WRITE_EXTERNAL_STORAGE = 1;
     private LoadedItem loader;
     private ActivityListBinding binding;
     private App app;
@@ -65,6 +72,7 @@ public class ListActivity extends AppCompatActivity {
         if (app.config().activities().list().type().equals("back_next")) {
             final InterstitialAd[] backNextInterstitial = new InterstitialAd[1];
             binding.activityListPagerContainer.setVisibility(View.VISIBLE);
+            binding.activityListPager.setUserInputEnabled(false);
             items = app.items(binding.activityListPager, (item) -> {
             }, (item, position) -> getPagerItemType((Item) item, position));
             binding.activityListPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -84,11 +92,9 @@ public class ListActivity extends AppCompatActivity {
                     binding.activityListPagerBack.setEnabled(isItemNotFirst);
                     boolean isItemNotLast = items != null && items.size() - 1 != position;
                     binding.activityListPagerNext.setEnabled(isItemNotLast);
-
                 }
             });
             binding.activityListPagerBack.setOnClickListener(v -> {
-
                 if(app.config().activities().item().hasInterstitialAd() && backNextInterstitial[0]!=null){
                     backNextInterstitial[0].showNow();
                 }
@@ -108,6 +114,27 @@ public class ListActivity extends AppCompatActivity {
             items = app.items(binding.activityList, this::showItem, (item, position) -> new ListItemLayout(app,  (Item) item, position).asType());
         }
         items.read().thenRun(items::show);
+    }
+    @AfterPermissionGranted(RC_WRITE_EXTERNAL_STORAGE)
+    private void requestPermissions() {
+        String[] perms = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (EasyPermissions.hasPermissions(this, perms)) {
+            new Flashbar.Builder(this)
+                    .gravity(Flashbar.Gravity.BOTTOM)
+                    .title(R.string.success_title)
+                    .message(getString(R.string.download_again))
+                    .titleColorRes(R.color.white)
+                    .messageColorRes(R.color.white)
+                    .enableSwipeToDismiss()
+                    .dismissOnTapOutside()
+                    .vibrateOn(Flashbar.Vibration.SHOW, Flashbar.Vibration.DISMISS)
+                    .backgroundColorRes(R.color.color_primary_dark)
+                    .build().show();
+        } else {
+            // Do not have permissions, request them now
+            EasyPermissions.requestPermissions(this, getString(R.string.download_permission_explaination),
+                    RC_WRITE_EXTERNAL_STORAGE, perms);
+        }
     }
 
     private void previous() {
@@ -155,6 +182,7 @@ public class ListActivity extends AppCompatActivity {
                     }
                 };
             case Item.TYPE_WEBVIEW:
+
                 return new ItemType<ItemWebviewBinding>(R.layout.item_webview) {
                     @Override
                     public void onBind(@NotNull Holder<ItemWebviewBinding> holder) {
@@ -170,6 +198,7 @@ public class ListActivity extends AppCompatActivity {
                             browser.onActivityResult(args.getInt(REQUEST_CODE), args.getInt(RESULT_CODE), args.getParcelable(DATA));
                         };
                         browser.show(holder.getBinding().itemWebview);
+
 
                     }
                 };
@@ -223,6 +252,13 @@ public class ListActivity extends AppCompatActivity {
         args.putInt("resultCode", resultCode);
         args.putParcelable("data", data);
         activityResultListener.accept(args);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
     @Override

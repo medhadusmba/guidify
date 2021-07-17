@@ -23,7 +23,7 @@ public class TapdaqInterstitialAds implements InterstitialAdSource {
     public InterstitialAd interstitialAd() {
         CompletableFuture<InterstitialAd> result = new CompletableFuture<>();
         CompletableFuture<String> onDismiss = new CompletableFuture<>();
-        origin=new Huxter.StandaloneAd(activity, interstitialAdId, new Huxter.StandaloneAd.Listener() {
+        origin=new Huxter.StandaloneAd(activity, interstitialAdId, Huxter.AdFormat.InterstitialVideo,  new Huxter.StandaloneAd.Listener() {
             @Override
             public void onDismiss(String network) {
                 onDismiss.complete(network);

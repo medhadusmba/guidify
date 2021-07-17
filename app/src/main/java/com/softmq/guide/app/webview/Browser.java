@@ -23,6 +23,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.andrognito.flashbar.Flashbar;
 import com.softmq.guide.app.R;
 import com.softmq.guide.app.Config;
 
@@ -188,9 +189,29 @@ public class Browser implements AdvancedWebView.Listener, SwipeRefreshLayout.OnR
 
 
         if (AdvancedWebView.handleDownload(getActivity(), url, filename)) {
-            Toast.makeText(getActivity(), activity.getResources().getString(R.string.download_done), Toast.LENGTH_SHORT).show();
+            new Flashbar.Builder(activity)
+                    .gravity(Flashbar.Gravity.BOTTOM)
+                    .title(R.string.success_title)
+                    .titleColorRes(R.color.white)
+                    .messageColorRes(R.color.white)
+                    .backgroundColorRes(R.color.color_primary_dark)
+                    .message(activity.getResources().getString(R.string.download_done))
+                    .vibrateOn(Flashbar.Vibration.SHOW, Flashbar.Vibration.DISMISS)
+                    .dismissOnTapOutside()
+                    .enableSwipeToDismiss()
+                    .build().show();
         } else {
-            Toast.makeText(getActivity(), activity.getResources().getString(R.string.download_fail), Toast.LENGTH_SHORT).show();
+            new Flashbar.Builder(activity)
+                    .gravity(Flashbar.Gravity.BOTTOM)
+                    .titleColorRes(R.color.white)
+                    .messageColorRes(R.color.white)
+                    .enableSwipeToDismiss()
+                    .dismissOnTapOutside()
+                    .title(R.string.error_title)
+                    .backgroundColorRes(R.color.color_primary_dark)
+                    .message(activity.getResources().getString(R.string.download_fail))
+                    .vibrateOn(Flashbar.Vibration.SHOW, Flashbar.Vibration.DISMISS)
+                    .build().show();
         }
     }
 

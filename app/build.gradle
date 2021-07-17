@@ -64,19 +64,20 @@ dependencies {
     implementation 'com.github.nitrico.lastadapter:lastadapter:2.3.0'
     implementation 'com.github.sujithkanna:smileyrating:2.0.0'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
-    implementation "com.airbnb.android:lottie:3.6.0"
+    implementation "com.airbnb.android:lottie:3.7.0"
     implementation 'com.onesignal:OneSignal:4.4.0'
-
-
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'com.andrognito.flashbar:flashbar:1.0.2'
     implementation 'com.google.android.play:core:1.10.0'
     //implementation 'com.google.android.gms:play-services-basement:17.6.0'
     //implementation 'com.google.firebase:firebase-analytics:18.0.2'
 
     //SDK ADS
-    implementation "com.softmq.huxter:core:2.0.0"
-    implementation "com.softmq.huxter:admob:2.0.0"
-    implementation "com.softmq.huxter:mopub:2.0.0"
-    implementation "com.softmq.huxter:tapdaq:2.0.0"
+    implementation "com.softmq.huxter:core:2.1.2"
+    implementation "com.softmq.huxter:admob:2.1.2"
+    implementation "com.softmq.huxter:mopub:2.1.2"
+    implementation "com.softmq.huxter:tapdaq:2.1.2"
+    implementation "com.softmq.huxter:gdpr:2.1.2"
 
     implementation 'com.facebook.android:audience-network-sdk:6.5.1'
     implementation 'com.adcolony:sdk:4.5.0'
@@ -91,8 +92,8 @@ dependencies {
     implementation 'com.huawei.hms:ads-installreferrer:3.4.39.302'
 
     //Mediation Admob
-    implementation 'com.google.ads.mediation:facebook:6.5.0.0'
-    implementation 'com.google.ads.mediation:ironsource:7.1.6.0'
+    implementation 'com.google.ads.mediation:facebook:6.5.1.0'
+    implementation 'com.google.ads.mediation:ironsource:7.1.7.0'
     implementation 'com.google.ads.mediation:adcolony:4.5.0.0'
     implementation 'com.google.ads.mediation:unity:3.7.2.0'
     implementation 'com.google.ads.mediation:inmobi:9.1.9.0'

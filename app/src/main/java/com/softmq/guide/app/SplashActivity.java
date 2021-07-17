@@ -7,6 +7,8 @@ import com.softmq.guide.app.common.time.RemainingTime;
 import com.softmq.guide.app.common.ui.navigation.DelayedNavigator;
 import com.softmq.guide.app.databinding.ActivitySplashBinding;
 import com.softmq.guide.app.splashscreen.SplashActivityConfig;
+import com.softmq.huxter.core.Huxter;
+import com.softmq.huxter.gdpr.GDPR;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,8 +32,15 @@ public class SplashActivity extends AppCompatActivity {
     private void navigate(App app) {
         SplashActivityConfig config = app.config().activities().splash();
         elapsed.finish();
-        new DelayedNavigator(this, new RemainingTime(elapsed.value(), config.duration()).value())
-                .navigateTo(app.activities().home());
+        new GDPR.UserConsent(this).isGranted().whenComplete((ok, throwable) ->{
+            if(!ok){
+                finish();
+            } else{
+                new DelayedNavigator(this, new RemainingTime(elapsed.value(), config.duration()).value())
+                        .navigateTo(app.activities().home());
+            }
+
+        } );
     }
 
 }
